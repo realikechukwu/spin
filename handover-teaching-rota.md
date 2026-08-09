@@ -51,61 +51,69 @@ Spin the wheel, or pick a number from the table below. Every topic is written to
 
 **Rule:** Score thromboembolic risk with CHA2DS2-VASc, assess bleeding risk with ORBIT, and offer a DOAC first line. Bleeding risk is used to find and modify reversible risk factors, not to withhold anticoagulation.
 
-**Trap:** Withholding anticoagulation because of falls risk. The number of falls per year needed to outweigh the stroke benefit is implausibly high for almost any real patient.
+**Trap:** Withholding anticoagulation solely because of age or falls risk. Use bleeding assessment to address modifiable risks and review treatment, not as an automatic reason to deny stroke prevention.
 
 **Take home:** NICE explicitly says do not offer aspirin monotherapy for stroke prevention in AF.
 
 **Source:** NICE NG196
 
+**Fact check:** [NICE NG196 recommendations](https://www.nice.org.uk/guidance/ng196/chapter/recommendations)
+
 ---
 
 ## 2. Why atropine fails in complete heart block
 
-**Principle:** Atropine works by blocking vagal tone at the AV node. If the block sits below the node, in the His-Purkinje system, there is no vagal tone there to block, so atropine does nothing.
+**Principle:** Atropine blocks parasympathetic activity at the sinoatrial and AV nodes. It is unlikely to help when high-grade block is below the AV node, particularly when the QRS is broad.
 
-**Rule:** Atropine 500 micrograms IV, repeated every 3 to 5 minutes to a maximum of 3 mg. If the QRS is broad and the block is Mobitz II or third degree, expect failure and get the pacing pads on early. Second line is transcutaneous pacing, isoprenaline or an adrenaline infusion, alongside an urgent cardiology call.
+**Rule:** For adverse features, give atropine 500 micrograms IV and repeat every 3 to 5 minutes to a maximum of 3 mg, except in high-degree AV block with a wide QRS, where RCUK advises against it because it may be ineffective and can worsen the block. Prepare transcutaneous pacing and seek expert help; alternatives include isoprenaline or adrenaline infusion.
 
-**Trap:** Cycling through repeated atropine doses in an infranodal block while the patient stays at 30 beats per minute. Worth knowing too that atropine is ineffective in the transplanted heart, which is denervated.
+**Trap:** Cycling through atropine in a broad-QRS high-grade block while definitive pacing is delayed. In a transplanted heart atropine can cause high-grade block or sinus arrest; use aminophylline for severe bradycardia.
 
-**Take home:** Broad QRS bradycardia means reach for the pacing pads, not the third dose of atropine.
+**Take home:** Broad-QRS high-grade block means prepare pacing and expert support, not repeated atropine.
 
-**Source:** Resuscitation Council UK ALS 2021
+**Source:** Resuscitation Council UK ALS 2025
+
+**Fact check:** [RCUK adult ALS guideline 2025](https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/adult-advanced-life-support-guidelines)
 
 ---
 
-## 3. Adenosine is 6, 12, 18, and the cannula matters more than the dose
+## 3. Adenosine is 6, 12, 18—and delivery matters
 
 **Principle:** Adenosine has a half life under 10 seconds because it is taken up by red cells and endothelium almost immediately. It only works if a bolus reaches the AV node intact.
 
-**Rule:** 6 mg, then 12 mg, then 18 mg, each as a rapid bolus into a large proximal vein with an immediate 20 ml saline flush and the arm elevated. Run a rhythm strip throughout, because the strip during the pause is often more diagnostically useful than the termination itself.
+**Rule:** Give 6 mg, then 12 mg, then 18 mg as rapid IV boluses, each followed immediately by a rapid saline flush through a well-functioning line that is as proximal as practical. Record a rhythm strip throughout, because AV block may reveal the underlying rhythm even if the tachycardia does not terminate.
 
-**Trap:** Giving it through a small hand cannula or a femoral line. The drug is metabolised before it arrives and you conclude it did not work.
+**Trap:** Injecting slowly or through poorly functioning access, then treating failed delivery as diagnostic failure. Adenosine should be used cautiously when the diagnosis is uncertain and avoided in irregular broad-complex tachycardia.
 
-**Take home:** Antecubital fossa or bigger, rapid flush, and record the strip.
+**Take home:** Use a rapid bolus and immediate flush, and record the rhythm strip.
 
-**Source:** Resuscitation Council UK ALS 2021, third dose changed from 12 mg to 18 mg
+**Source:** Resuscitation Council UK adult tachyarrhythmia algorithm, March 2026
 
----
-
-## 4. The delta matters more than the absolute troponin
-
-**Principle:** Troponin tells you there is myocardial injury. Only the pattern over time tells you whether that injury is acute. Chronic elevation from renal impairment, heart failure or LVH sits at a stable plateau. Acute infarction rises and falls.
-
-**Rule:** Use your local high sensitivity rule in and rule out thresholds with a repeat sample at the specified interval. A single mildly raised troponin with an unconvincing story and no dynamic change is not an NSTEMI.
-
-**Trap:** Treating a flat, chronically raised troponin as ACS and loading someone with dual antiplatelets and fondaparinux. And the converse: a normal first troponin very early after symptom onset excludes nothing.
-
-**Take home:** Two values and a clinical story, never one number in isolation.
-
-**Source:** NICE DG40 and the ESC rapid rule out pathways
+**Fact check:** [RCUK adult tachyarrhythmia algorithm](https://www.resus.org.uk/sites/default/files/2026-03/Adult%20tachyarrhythmia%20algorithm%20V3%20March%202026.pdf)
 
 ---
 
-## 5. The STEMI equivalents that do not meet STEMI criteria
+## 4. The troponin pathway matters more than one elevated value
 
-**Principle:** ST elevation criteria are a proxy for occlusion, not the definition of it. Some total occlusions produce no ST elevation at all in the standard leads.
+**Principle:** Troponin above the 99th centile shows myocardial injury. A rise or fall supports acute injury, while myocardial infarction also requires clinical evidence of ischaemia; renal disease, heart failure and other illnesses can elevate troponin without infarction.
 
-**Rule:** Three to know. Posterior MI shows horizontal ST depression in V1 to V3 with tall R waves, so do posterior leads V7 to V9. De Winter T waves show upsloping ST depression at the J point with tall symmetrical T waves in the precordials, meaning proximal LAD occlusion. Wellens pattern shows deep or biphasic T wave inversion in V2 to V3 in a pain free patient, meaning critical LAD stenosis.
+**Rule:** Follow an assay-specific, validated local pathway and account for time from symptom onset. Some pathways allow rule-out with one very low high-sensitivity troponin in selected low-risk patients; otherwise repeat at the pathway's specified interval.
+
+**Trap:** Calling every mildly elevated troponin an NSTEMI, or using an early value below the 99th centile to rule out ACS when the validated pathway does not allow it.
+
+**Take home:** Use the validated pathway and clinical story; do not diagnose MI from one elevated value.
+
+**Source:** NICE HTG552 (formerly DG40) and validated local hs-troponin pathways
+
+**Fact check:** [NICE high-sensitivity troponin recommendations](https://www.nice.org.uk/guidance/HTG552/chapter/1-Recommendations)
+
+---
+
+## 5. High-risk ACS patterns can lack classic ST elevation
+
+**Principle:** Standard ST-elevation criteria do not capture every coronary occlusion or every patient at high risk of imminent infarction.
+
+**Rule:** Posterior infarction may show horizontal ST depression and tall R waves in V1 to V3; obtain V7 to V9. A de Winter pattern is associated with proximal LAD occlusion. Deeply inverted or biphasic T waves in V2 to V3 while pain-free suggest Wellens syndrome and critical proximal LAD disease.
 
 **Trap:** Stress testing a Wellens patient. They need angiography, not a treadmill.
 
@@ -113,19 +121,23 @@ Spin the wheel, or pick a number from the table below. Every topic is written to
 
 **Source:** ESC acute coronary syndromes guideline 2023
 
+**Fact check:** [ESC acute coronary syndromes guideline](https://www.escardio.org/guidelines/clinical-practice-guidelines/all-esc-practice-guidelines/acute-coronary-syndromes/)
+
 ---
 
 ## 6. The dissection that presents as an inferior STEMI
 
 **Principle:** A type A dissection flap can extend into a coronary ostium, most commonly the right, producing genuine inferior infarction. The ECG is real. The diagnosis is still dissection.
 
-**Rule:** Before thrombolysing or loading for an inferior STEMI, take ten seconds on three things. Was the pain tearing and maximal at onset, is there a pulse or blood pressure differential between arms, and is there a new diastolic murmur. A widened mediastinum is supportive but neither sensitive nor specific.
+**Rule:** Before thrombolysis for an inferior STEMI, rapidly consider acute aortic syndrome: abrupt severe pain, pulse or blood-pressure differential, new aortic regurgitation, neurological deficit or other high-risk features. A widened mediastinum is supportive but neither sensitive nor specific, and absence of classic features does not exclude dissection.
 
 **Trap:** Full anticoagulation and antiplatelet loading in an undiagnosed dissection.
 
 **Take home:** Inferior STEMI with hypotension needs right sided leads and a moment's thought about the aorta.
 
-**Source:** ESC aortic disease guideline 2024
+**Source:** ESC peripheral arterial and aortic diseases guideline 2024
+
+**Fact check:** [ESC aortic diseases guideline](https://www.escardio.org/guidelines/clinical-practice-guidelines/all-esc-practice-guidelines/peripheral-arterial-and-aortic-diseases/)
 
 ---
 
@@ -133,7 +145,7 @@ Spin the wheel, or pick a number from the table below. Every topic is written to
 
 **Principle:** Most syncope is benign reflex syncope. The whole job of the assessment is separating that from arrhythmic or structural cardiac syncope, which carries real short term mortality.
 
-**Rule:** Any of these means the patient does not simply go home: syncope during exertion, syncope while supine or sitting, new or unexplained breathlessness, a heart murmur, a family history of sudden cardiac death under 40, or an abnormal ECG. Everyone gets a 12 lead.
+**Rule:** NICE red flags are an abnormal ECG, heart failure or its signs, loss of consciousness during exertion, family history of sudden cardiac death under 40 or inherited cardiac disease, new or unexplained breathlessness, and a heart murmur. Record a 12-lead ECG in the initial assessment.
 
 **Trap:** Labelling it collapse query cause and moving on. That phrase carries no diagnostic information and tends to close down thinking.
 
@@ -141,13 +153,15 @@ Spin the wheel, or pick a number from the table below. Every topic is written to
 
 **Source:** NICE CG109
 
+**Fact check:** [NICE CG109 recommendations](https://www.nice.org.uk/guidance/cg109/chapter/Recommendations)
+
 ---
 
 # Respiratory
 
 ## 16. 88 to 92% is a target range, not a ceiling to defend
 
-**Principle:** The risk in chronic hypercapnia is mainly worsening ventilation-perfusion mismatch with high oxygen, plus loss of hypoxic drive. But hypoxia kills faster than hypercapnia. The target exists to prevent over-oxygenation, not to justify under-treating a hypoxic patient.
+**Principle:** In oxygen-sensitive hypercapnic respiratory failure, excess oxygen can worsen carbon dioxide retention mainly through ventilation-perfusion mismatch and the Haldane effect; reduced hypoxic drive is a smaller contributor. The target prevents over-oxygenation, not treatment of dangerous hypoxaemia.
 
 **Rule:** 94 to 98% for most acutely unwell patients, 88 to 92% for those at risk of hypercapnic respiratory failure pending blood gases. If a patient at risk is saturating at 80%, give high flow oxygen immediately and check a gas. Do not titrate cautiously upward.
 
@@ -157,33 +171,39 @@ Spin the wheel, or pick a number from the table below. Every topic is written to
 
 **Source:** BTS oxygen guideline
 
+**Fact check:** [BTS emergency oxygen guideline](https://www.brit-thoracic.org.uk/clinical-resources/guidelines/emergency-oxygen/)
+
 ---
 
-## 17. NIV is decided at one hour, not on arrival
+## 17. Start NIV after initial medical therapy—and do not delay it in severe acidosis
 
-**Principle:** Much of the acidosis on arrival in COPD is driven by uncontrolled oxygen in the ambulance and by reversible bronchospasm. Treat those and the pH often corrects without ventilation.
+**Principle:** Controlled oxygen and initial COPD treatment can improve reversible acidosis, but persistent hypercapnic acidosis is the evidence-based trigger for NIV and delay can be harmful.
 
-**Rule:** Give controlled oxygen to 88 to 92%, bronchodilators, steroids and antibiotics if indicated, then repeat the gas after one hour. Persistent respiratory acidosis with pH below 7.35 and PaCO2 above 6.5 kPa at that point is the trigger for NIV.
+**Rule:** Give controlled oxygen to 88 to 92% and optimal medical therapy. Start NIV when pH remains below 7.35 with PaCO2 above 6.5 kPa after initial treatment—often reassessed at about 30 to 60 minutes. Severe acidosis, for example pH below 7.25, needs urgent senior review and should not wait for a chest radiograph.
 
-**Trap:** Starting NIV on the arrival gas before optimising, or the reverse, waiting three hours to see. Every patient started on NIV needs a documented escalation plan and ceiling of care decision at the point of starting, not at 3am when it fails.
+**Trap:** Treating one hour as an absolute waiting period, or allowing repeated gases to delay ventilation. Document the escalation plan and ceiling of care when NIV starts.
 
-**Take home:** Optimise, repeat the gas at one hour, and write the ceiling of care down.
+**Take home:** Treat first, reassess promptly, and start NIV without delay when hypercapnic acidosis persists.
 
-**Source:** BTS and ICS acute NIV guideline
+**Source:** BTS/ICS acute hypercapnic respiratory failure guideline
+
+**Fact check:** [BTS/ICS acute NIV guideline](https://thorax.bmj.com/content/71/Suppl_2/ii1)
 
 ---
 
 ## 18. Five days of prednisolone, and no taper
 
-**Principle:** Short glucocorticoid courses do not meaningfully suppress the hypothalamic-pituitary-adrenal axis, so there is nothing to taper. Longer courses add adverse effects without additional benefit.
+**Principle:** For most patients, the recommended five-day oral corticosteroid course can be stopped without a taper. Individualise if the patient has prolonged or repeated steroid exposure or another reason for adrenal suppression.
 
-**Rule:** Prednisolone 30 mg once daily for 5 days in an acute COPD exacerbation, then stop. Antibiotics only if sputum has become purulent or there are clinical or radiological signs of pneumonia.
+**Rule:** Give prednisolone 30 mg once daily for 5 days in an acute COPD exacerbation. Consider antibiotics rather than prescribing them automatically, taking account of sputum colour, volume or thickness, severity, admission risk and evidence of pneumonia.
 
 **Trap:** The reducing regimen over two weeks, and reflex antibiotics for every exacerbation regardless of sputum character.
 
 **Take home:** Thirty milligrams, five days, stop.
 
-**Source:** NICE NG115
+**Source:** NICE NG115 and NG114
+
+**Fact check:** [NICE COPD recommendations](https://www.nice.org.uk/guidance/ng115/chapter/Recommendations)
 
 ---
 
@@ -191,7 +211,7 @@ Spin the wheel, or pick a number from the table below. Every topic is written to
 
 **Principle:** D-dimer rises with age, malignancy, infection, pregnancy and surgery. A fixed threshold becomes progressively less useful the older the patient is, generating scans that were never going to be positive.
 
-**Rule:** In a patient over 50 who is not PE likely, use age multiplied by 10 as the cut off in ng/mL. A D-dimer is only interpretable after a validated pre-test probability score. If the patient is PE likely, go straight to imaging, because a negative D-dimer does not rule out PE in that group.
+**Rule:** In a patient over 50 in whom PE is unlikely, consider an age-adjusted threshold; a commonly validated formula is age multiplied by 10 ng/mL FEU, but confirm the assay units and local pathway. If PE is likely, proceed directly to imaging rather than using D-dimer to rule it out.
 
 **Trap:** Sending a D-dimer on everyone with chest pain before any clinical assessment. A positive result in a low probability patient then obliges a scan you did not need.
 
@@ -199,19 +219,23 @@ Spin the wheel, or pick a number from the table below. Every topic is written to
 
 **Source:** NICE NG158
 
+**Fact check:** [NICE NG158 recommendations](https://www.nice.org.uk/guidance/ng158/chapter/Recommendations)
+
 ---
 
 ## 20. Not every PE needs admission
 
-**Principle:** Risk in PE is driven by right ventricular strain and haemodynamic compromise, not by clot burden on the scan. A large looking clot in a well patient with a normal right heart is lower risk than a small clot in a patient with a dilated RV.
+**Principle:** Early PE risk is driven mainly by haemodynamic status, clinical risk and right-ventricular dysfunction, not simply by the visual size of clot on CT.
 
-**Rule:** Use sPESI or the Hestia criteria to identify low risk patients suitable for outpatient management on a DOAC, with clear safety netting and early follow up. Raised troponin or RV dilatation moves a patient into intermediate risk and they stay in.
+**Rule:** Use a validated tool such as PESI, sPESI or Hestia to identify patients who may be suitable for outpatient treatment, together with clinical judgement, reliable follow-up and safety-netting. Raised troponin or RV dilatation warrants senior risk review and will usually preclude a simple outpatient pathway.
 
-**Trap:** Describing a PE as massive based on the CT report. Massive is a haemodynamic definition meaning sustained hypotension, not a radiological one.
+**Trap:** Calling a PE high risk from clot burden alone. Current risk categories are haemodynamic and clinical; obstruction on the scan must be interpreted with the patient's physiology.
 
-**Take home:** Massive means the blood pressure, not the picture.
+**Take home:** The patient's haemodynamics and right heart matter more than how dramatic the clot looks.
 
-**Source:** NICE NG158 and ESC acute PE guideline
+**Source:** NICE NG158 and ESC acute PE guidance
+
+**Fact check:** [NICE outpatient PE recommendations](https://www.nice.org.uk/guidance/ng158/chapter/Recommendations#outpatient-treatment-for-low-risk-pe)
 
 ---
 
@@ -227,6 +251,8 @@ Spin the wheel, or pick a number from the table below. Every topic is written to
 
 **Source:** BTS pleural disease guideline 2023
 
+**Fact check:** [BTS pleural disease guideline](https://www.brit-thoracic.org.uk/clinical-resources/guidelines/pleural-disease/)
+
 ---
 
 # Renal and metabolic
@@ -235,7 +261,7 @@ Spin the wheel, or pick a number from the table below. Every topic is written to
 
 **Principle:** There are three separate jobs in hyperkalaemia and they get confused. Stabilise the myocardium, shift potassium into cells, then remove it from the body. Calcium does only the first.
 
-**Rule:** ECG changes get 10 ml of 10% calcium gluconate, which acts within minutes and wears off in 30 to 60 minutes. Shift with insulin and glucose plus salbutamol nebulisers. Removal means dialysis or a potassium binder, and stopping whatever caused it.
+**Rule:** For severe hyperkalaemia with ECG changes, give 10 mL of 10% calcium chloride IV over 5 minutes; if calcium chloride is unavailable, give 30 mL of 10% calcium gluconate over 10 minutes. Shift potassium with insulin-glucose and nebulised salbutamol. Removal may require a potassium binder or dialysis, alongside treating the cause.
 
 **Trap:** Giving calcium and assuming the problem is treated. The serum potassium is entirely unchanged.
 
@@ -243,13 +269,15 @@ Spin the wheel, or pick a number from the table below. Every topic is written to
 
 **Source:** UK Kidney Association hyperkalaemia guideline
 
+**Fact check:** [UKKA hyperkalaemia guideline](https://guidelines.ukkidney.org/hyperkalaemia/)
+
 ---
 
 ## 11. The insulin-glucose hypoglycaemia that happens six hours later
 
 **Principle:** The insulin used to shift potassium has a longer duration of glycaemic effect than the glucose given with it, particularly in renal impairment where insulin clearance is reduced.
 
-**Rule:** After insulin and glucose, monitor capillary glucose hourly for at least six hours. The strongest predictor of later hypoglycaemia is a pre-treatment glucose below 7 mmol/L, and those patients need extended glucose cover.
+**Rule:** After insulin-glucose, check capillary glucose at 30, 60, 90 and 120 minutes, then hourly to 6 hours. If pre-treatment glucose is below 7 mmol/L, UKKA advises 10% glucose at 50 mL/hour for 5 hours after the initial treatment.
 
 **Trap:** Giving the insulin and walking away because the potassium is now normal. This is a recognised cause of avoidable overnight harm and a recurring incident report theme.
 
@@ -257,9 +285,11 @@ Spin the wheel, or pick a number from the table below. Every topic is written to
 
 **Source:** UK Kidney Association hyperkalaemia guideline
 
+**Fact check:** [UKKA hyperkalaemia guideline](https://guidelines.ukkidney.org/hyperkalaemia/)
+
 ---
 
-## 12. Potassium will not correct while the magnesium is low
+## 12. Low magnesium can make hypokalaemia refractory
 
 **Principle:** Magnesium normally inhibits the ROMK channel in the distal nephron. When magnesium is depleted that inhibition is lifted, the kidney wastes potassium continuously, and replacement flows straight into the urine.
 
@@ -269,7 +299,9 @@ Spin the wheel, or pick a number from the table below. Every topic is written to
 
 **Take home:** Hypokalaemia that will not budge means check the magnesium.
 
-**Source:** Renal physiology, reflected in most trust electrolyte protocols
+**Source:** Renal physiology and clinical reviews of refractory hypokalaemia
+
+**Fact check:** [Review of distal potassium handling](https://pmc.ncbi.nlm.nih.gov/articles/PMC3074996/)
 
 ---
 
@@ -277,13 +309,15 @@ Spin the wheel, or pick a number from the table below. Every topic is written to
 
 **Principle:** Symptoms come from cerebral oedema caused by acute water shift into brain cells. Severity is set by the neurology and the rate of fall, not by how low the number is. A chronic sodium of 118 may be walking and talking. An acute fall to 125 may be fitting.
 
-**Rule:** Seizures or reduced consciousness get hypertonic 3% saline, 100 to 150 ml over 20 minutes, repeated to achieve a 5 mmol/L rise and symptom improvement. Everyone else gets time: assess volume status and send paired serum and urine osmolality plus urine sodium before giving any fluid.
+**Rule:** Severe neurological symptoms require immediate 3% hypertonic saline—150 mL over 20 minutes in the European guideline—with repeat boluses guided by symptoms and an initial rise of about 5 mmol/L. When safe, obtain serum and urine osmolality and urine sodium before treatment, but do not delay emergency therapy.
 
 **Trap:** Giving a litre of 0.9% saline to an undifferentiated hyponatraemia. In SIADH this can make the sodium fall further, because the kidney excretes the salt and retains the water.
 
 **Take home:** Send the urine before you hang the fluid.
 
-**Source:** European Society of Endocrinology hyponatraemia guideline
+**Source:** European hyponatraemia clinical practice guideline
+
+**Fact check:** [European hyponatraemia guideline](https://academic.oup.com/ejendo/article/170/3/G1/6668028)
 
 ---
 
@@ -291,13 +325,15 @@ Spin the wheel, or pick a number from the table below. Every topic is written to
 
 **Principle:** Brain cells adapt to chronic hyponatraemia by extruding osmolytes. Correct the serum sodium faster than they can reclaim those osmolytes and the cells shrink, causing osmotic demyelination. It is irreversible and it presents days later.
 
-**Rule:** Maximum 10 mmol/L in the first 24 hours, and 8 mmol/L in high risk patients: malnutrition, alcohol dependence, hypokalaemia, advanced liver disease, or a starting sodium below 105.
+**Rule:** Limit the rise to no more than 10 mmol/L in the first 24 hours and 8 mmol/L in each 24 hours thereafter; use a more conservative limit, commonly 8 mmol/L per 24 hours, in patients at high risk of osmotic demyelination.
 
-**Trap:** Auto-correction. When you treat the cause, for example stopping a thiazide or filling a hypovolaemic patient, the sodium can climb rapidly on its own. Recheck at 4 to 6 hours and be ready to give desmopressin and dextrose to slow it down.
+**Trap:** Auto-correction after the cause is treated—for example after stopping a thiazide or restoring volume—can exceed the limit without further saline. Monitor frequently during active correction and obtain expert help for desmopressin and electrolyte-free water if overcorrection is developing.
 
 **Take home:** The danger is not just what you infuse, it is what the patient does once you remove the cause.
 
-**Source:** European Society of Endocrinology hyponatraemia guideline
+**Source:** European hyponatraemia clinical practice guideline
+
+**Fact check:** [European hyponatraemia guideline](https://academic.oup.com/ejendo/article/170/3/G1/6668028)
 
 ---
 
@@ -305,13 +341,15 @@ Spin the wheel, or pick a number from the table below. Every topic is written to
 
 **Principle:** The fixed rate insulin infusion treats the ketosis. The background basal insulin does a separate job, preventing rebound hyperglycaemia and ketosis at the moment the infusion stops. Stopping it creates a gap.
 
-**Rule:** Continue the usual long acting analogue at the usual dose alongside the FRIII. Add 10% glucose once the capillary glucose falls below 14 mmol/L and keep the insulin running. Resolution is ketones below 0.6 mmol/L with pH above 7.3 and bicarbonate above 15.
+**Rule:** Continue the usual long-acting analogue at the usual dose alongside the FRIII. Add 10% glucose when capillary glucose falls below 14 mmol/L and keep insulin running. Resolution is ketones below 0.6 mmol/L with venous pH above 7.3 and/or bicarbonate above 18 mmol/L.
 
 **Trap:** Stopping the infusion when the glucose normalises. The patient is still ketotic and will relapse within hours.
 
 **Take home:** You stop the drip on the ketones, never on the glucose.
 
 **Source:** JBDS-IP DKA guideline
+
+**Fact check:** [JBDS adult DKA pathway](https://abcd.care/sites/default/files/site_uploads/JBDS_Guidelines_Current/JBDS_02_Single_page_pathway_March_2023.pdf)
 
 ---
 
@@ -327,6 +365,8 @@ Spin the wheel, or pick a number from the table below. Every topic is written to
 
 **Source:** NICE NG148 and KDIGO
 
+**Fact check:** [NICE acute kidney injury recommendations](https://www.nice.org.uk/guidance/ng148/chapter/Recommendations)
+
 ---
 
 ## 26. Post-obstructive diuresis is a real thing
@@ -339,7 +379,9 @@ Spin the wheel, or pick a number from the table below. Every topic is written to
 
 **Take home:** A big residual volume needs an observation plan, not just a number in the notes.
 
-**Source:** BAUS guidance and NICE NG148
+**Source:** BAUS teaching and peer-reviewed obstructive uropathy guidance
+
+**Fact check:** [Review of obstructive uropathy management](https://pmc.ncbi.nlm.nih.gov/articles/PMC9846865/)
 
 ---
 
@@ -347,7 +389,7 @@ Spin the wheel, or pick a number from the table below. Every topic is written to
 
 **Principle:** Fluid is a drug with a dose, a route and side effects. The commonest prescribing error is using resuscitation rate fluid to correct a maintenance problem, or the reverse.
 
-**Rule:** Every fluid prescription answers one of five questions: resuscitation, routine maintenance, replacement of ongoing losses, redistribution, or reassessment. Resuscitation is 500 ml of balanced crystalloid over less than 15 minutes then reassess. Routine maintenance is roughly 25 to 30 ml/kg/day of water with about 1 mmol/kg/day each of sodium, potassium and chloride.
+**Rule:** Every fluid prescription answers one of five questions: resuscitation, routine maintenance, replacement of ongoing losses, redistribution, or reassessment. For resuscitation, NICE advises 500 mL of a crystalloid containing sodium 130 to 154 mmol/L over less than 15 minutes, then reassess. Routine maintenance is roughly 25 to 30 mL/kg/day of water with about 1 mmol/kg/day each of sodium, potassium and chloride.
 
 **Trap:** Continuous 0.9% saline as maintenance. It delivers several times the daily sodium requirement and produces hyperchloraemic acidosis and oedema.
 
@@ -355,21 +397,25 @@ Spin the wheel, or pick a number from the table below. Every topic is written to
 
 **Source:** NICE CG174
 
+**Fact check:** [NICE IV fluid recommendations](https://www.nice.org.uk/guidance/cg174/chapter/recommendations)
+
 ---
 
 # Gastro and liver
 
-## 33. A Blatchford score of 0 or 1 can go home
+## 33. A Blatchford score of 0 or 1 may support outpatient care
 
 **Principle:** The Glasgow-Blatchford score is built entirely from pre-endoscopy variables and predicts need for intervention. It is the only widely used bleeding score designed for exactly the decision you are making at 3am.
 
-**Rule:** Score everyone with an upper GI bleed on admission. A score of 0 or 1 identifies a group at very low risk of needing intervention who can be considered for outpatient endoscopy. Endoscopy within 24 hours for everyone admitted, and immediately after resuscitation if unstable. Rockall is calculated after endoscopy and answers a different question.
+**Rule:** Calculate Glasgow-Blatchford score at presentation. BSG guidance supports considering outpatient management at a score of 0 or 1 if the wider clinical and social assessment is safe; NICE specifically highlights a score of 0 for early discharge. Patients admitted should undergo endoscopy within 24 hours, or urgently after resuscitation if unstable.
 
-**Trap:** Transfusing to a normal haemoglobin. Restrictive transfusion at a threshold of 70 g/L improves survival in acute upper GI bleeding, and over-transfusion raises portal pressure in variceal bleeding.
+**Trap:** Using the score as an automatic discharge instruction, or transfusing a stable patient to a normal haemoglobin. A restrictive threshold around 70 g/L is usual for most stable patients, but haemodynamic instability and acute coronary disease require individualisation.
 
 **Take home:** Blatchford before endoscopy, Rockall after.
 
-**Source:** NICE CG141
+**Source:** BSG acute upper GI bleeding care bundle and NICE CG141
+
+**Fact check:** [BSG acute upper GI bleeding care bundle](https://www.bsg.org.uk/clinical-resource/bsge-acute-upper-gi-bleed-care-bundle)
 
 ---
 
@@ -377,55 +423,63 @@ Spin the wheel, or pick a number from the table below. Every topic is written to
 
 **Principle:** In cirrhosis the ascitic fluid is a culture medium and the gut wall is leaky, so infection arises with no perforation and no surgical source. It frequently presents without abdominal pain or fever, sometimes as nothing more than a rising creatinine or new confusion.
 
-**Rule:** Diagnostic ascitic tap on every patient admitted with ascites, ideally within 6 hours and before antibiotics. An ascitic neutrophil count above 250 cells per cubic millimetre makes the diagnosis of spontaneous bacterial peritonitis regardless of what the culture grows. Treat with antibiotics per local policy plus intravenous albumin, which reduces renal failure and mortality.
+**Rule:** Perform diagnostic paracentesis without delay in every hospital admission with cirrhotic ascites, ideally before antibiotics. An ascitic neutrophil count above 250 cells/mm³ establishes spontaneous bacterial peritonitis. Treat with antibiotics; BSG/BASL recommends albumin when creatinine is increased or rising.
 
-**Trap:** Not tapping because the patient looks well, or because the INR is prolonged. A raised INR in cirrhosis is not a contraindication to a diagnostic tap and does not need correcting first.
+**Trap:** Not tapping because the patient looks well or because coagulation tests are abnormal. Routine prothrombin-time or platelet measurement and prophylactic blood products are not recommended before paracentesis.
 
 **Take home:** Two hundred and fifty neutrophils is the number, and the culture does not have to be positive.
 
-**Source:** EASL decompensated cirrhosis guideline and BSG ascites guidance
+**Source:** BSG/BASL ascites guideline
+
+**Fact check:** [BSG/BASL ascites guideline](https://gut.bmj.com/content/70/1/9)
 
 ---
 
 ## 38. Encephalopathy is a search for the precipitant
 
-**Principle:** Encephalopathy in cirrhosis is almost always triggered by something else. The liver disease is the substrate. The precipitant is what you actually treat.
+**Principle:** Overt hepatic encephalopathy commonly has an identifiable precipitant. Treating infection, bleeding, constipation, dehydration, electrolyte disturbance or sedating medicines is central to recovery.
 
 **Rule:** Look for it every time: infection including SBP, gastrointestinal bleeding, constipation, dehydration or over-diuresis, electrolyte disturbance, and sedative drugs. Lactulose titrated to two or three soft stools a day, with rifaximin added for recurrent episodes.
 
-**Trap:** Sending a serum ammonia and using it to make or exclude the diagnosis. It correlates poorly with grade and does not change management. And assuming confusion in a cirrhotic patient is encephalopathy without excluding hypoglycaemia, sepsis, Wernicke's or a subdural.
+**Trap:** Using an elevated ammonia level to diagnose or grade encephalopathy. It correlates poorly with severity; a normal value should prompt diagnostic reconsideration. Also exclude other causes of confusion such as hypoglycaemia, sepsis, Wernicke's encephalopathy or subdural bleeding.
 
-**Take home:** Hepatic encephalopathy is a clinical diagnosis. The job is finding the trigger, not measuring ammonia.
+**Take home:** Hepatic encephalopathy is a clinical diagnosis; search for and treat the precipitant.
 
-**Source:** EASL and AASLD hepatic encephalopathy guidance
+**Source:** EASL/AASLD hepatic encephalopathy guidance
+
+**Fact check:** [AASLD hepatic encephalopathy review](https://www.aasld.org/liver-fellow-network/core-series/back-basics/back-basics-decoding-hepatic-encephalopathy)
 
 ---
 
-## 39. In a cirrhotic bleed the antibiotic is the mortality drug
+## 39. In cirrhotic bleeding, antibiotics are a mortality treatment
 
-**Principle:** In variceal bleeding the intervention with the clearest mortality benefit is not the terlipressin and not the endoscopy. Bacterial translocation after a bleed drives rebleeding, infection and death, and antibiotics interrupt that.
+**Principle:** Bacterial infection is common around acute variceal bleeding and increases rebleeding and death. Antibiotic prophylaxis improves survival; vasoactive treatment and timely endoscopic haemostasis are also core mortality-focused care.
 
-**Rule:** Prophylactic antibiotics for every cirrhotic patient with an upper gastrointestinal bleed, whether or not varices are confirmed and whether or not there are signs of infection. Add terlipressin as soon as variceal bleeding is suspected, and arrange endoscopy within 24 hours once resuscitated.
+**Rule:** Start antibiotic prophylaxis from admission for cirrhosis with upper gastrointestinal bleeding. If variceal bleeding is suspected, start terlipressin unless contraindicated and arrange endoscopy within 12 hours once haemodynamically resuscitated.
 
 **Trap:** Waiting for endoscopy to confirm varices before starting either drug. And over-transfusing, which raises portal pressure and provokes rebleeding, so hold to the restrictive threshold of 70 g/L.
 
 **Take home:** Antibiotics in a cirrhotic bleed are a mortality intervention, not optional prophylaxis.
 
-**Source:** NICE CG141, BSG and Baveno guidance
+**Source:** NICE CG141, BSG and Baveno VII guidance
+
+**Fact check:** [Baveno VII consensus](https://pmc.ncbi.nlm.nih.gov/articles/PMC11090185/)
 
 ---
 
-## 40. Amylase makes the diagnosis and tells you nothing about severity
+## 40. Pancreatic enzymes help diagnose pancreatitis, not grade its severity
 
 **Principle:** Early mortality in acute pancreatitis is driven by SIRS and organ failure, not by the pancreas itself. The enzyme level reflects neither how much gland is involved nor how sick the patient will become.
 
-**Rule:** Goal directed fluid resuscitation with a balanced crystalloid, titrated to response rather than given at maximal rates. Find the cause in every patient: ultrasound for gallstones, an alcohol history, and check calcium and triglycerides. Reassess severity at 24 and 48 hours rather than trusting the admission score.
+**Rule:** Diagnosis requires two of three: characteristic pain, amylase or preferably lipase more than three times the upper limit of normal, or characteristic imaging. Use moderate, goal-directed fluid resuscitation—lactated Ringer's is preferred—find the cause with ultrasound and history, and check calcium and triglycerides when appropriate.
 
 **Trap:** Prophylactic antibiotics with no proven infection, which do not improve outcome. And keeping patients nil by mouth by reflex, when early oral feeding as tolerated is now preferred in mild disease.
 
 **Take home:** A normal or mildly raised amylase does not reassure, and a very high one does not frighten.
 
-**Source:** BSG and IAP/APA acute pancreatitis guidance
+**Source:** ACG 2024 and international acute pancreatitis guidance
+
+**Fact check:** [ACG acute pancreatitis guideline](https://pmc.ncbi.nlm.nih.gov/articles/PMC13221274/)
 
 ---
 
@@ -433,13 +487,15 @@ Spin the wheel, or pick a number from the table below. Every topic is written to
 
 **Principle:** Acute severe ulcerative colitis carries real mortality and its decision points are time bound. Truelove and Witts criteria identify it on day one, and failure to respond by day three is what triggers rescue therapy or surgery.
 
-**Rule:** Six or more bloody stools a day plus any one of: temperature above 37.8 degrees, pulse above 90, haemoglobin below 105 g/L, or ESR above 30. Admit, intravenous hydrocortisone, stool chart, exclude C. difficile and CMV, and get a plain abdominal film. Assess response on day 3 using stool frequency and CRP, with surgeons involved from admission.
+**Rule:** Six or more bloody stools a day plus any one of: temperature above 37.8°C, pulse above 90, haemoglobin below 105 g/L, or ESR above 30 mm/hour. Admit for intravenous steroids, stool chart, C. difficile testing, early flexible sigmoidoscopy with biopsies including for CMV, and appropriate abdominal imaging. Assess response on day 3 with the IBD and surgical teams involved early.
 
-**Trap:** Withholding VTE prophylaxis because the patient is bleeding per rectum. Acute severe colitis is strongly prothrombotic and prophylaxis is indicated. Also avoid antimotility agents and opiates, which risk toxic megacolon.
+**Trap:** Withholding pharmacological VTE prophylaxis solely because of rectal bleeding. Acute severe colitis is strongly prothrombotic and prophylaxis is indicated unless there is a true contraindication. Avoid antimotility drugs and opioids because of toxic-megacolon risk.
 
 **Take home:** Rectal bleeding is not a reason to withhold VTE prophylaxis in colitis.
 
-**Source:** BSG inflammatory bowel disease guidelines and ECCO
+**Source:** BSG inflammatory bowel disease guideline 2025
+
+**Fact check:** [BSG adult IBD guideline 2025](https://www.bsg.org.uk/clinical-resource/bsg-guidelines-on-ibd-in-adults-2025)
 
 ---
 
@@ -449,13 +505,15 @@ Spin the wheel, or pick a number from the table below. Every topic is written to
 
 **Principle:** Asking whether it is spinning or lightheaded is unreliable, because patients describe the same symptom differently on different days. Timing and triggers are reproducible. Quality is not.
 
-**Rule:** Sort into three groups. Continuous vertigo present right now is acute vestibular syndrome. Episodic and triggered by position is likely BPPV, so test with Dix-Hallpike. Episodic and spontaneous is a third category. HINTS applies only to the first group.
+**Rule:** Sort by syndrome: continuous acute vestibular syndrome, triggered episodic symptoms such as BPPV, or spontaneous episodic symptoms. Use Dix-Hallpike for suspected posterior-canal BPPV. HINTS is for a trained examiner assessing acute vestibular syndrome with nystagmus.
 
-**Trap:** Applying HINTS to someone who is currently asymptomatic. It is meaningless without ongoing nystagmus.
+**Trap:** Applying HINTS to a patient who is asymptomatic, has no spontaneous nystagmus, or when the examiner is not trained in the technique.
 
 **Take home:** No nystagmus right now means no HINTS.
 
-**Source:** Standard neuro-otology teaching, reflected in current stroke pathways
+**Source:** GRACE-3 acute dizziness guideline and NICE NG127
+
+**Fact check:** [GRACE-3 acute dizziness guideline](https://www.saem.org/publications/grace/grace-3)
 
 ---
 
@@ -463,13 +521,15 @@ Spin the wheel, or pick a number from the table below. Every topic is written to
 
 **Principle:** The head impulse test assesses the vestibulo-ocular reflex. Vestibular neuritis damages that reflex, so the eyes lag and make a corrective saccade. A brainstem stroke leaves the peripheral apparatus intact, so the reflex looks normal.
 
-**Rule:** Central features are a normal head impulse, direction changing nystagmus on lateral gaze, or vertical skew on cover-uncover testing. Any one of the three means central until proven otherwise.
+**Rule:** In the correct population, central features are a normal head impulse, direction-changing gaze-evoked nystagmus or vertical skew. Any central feature requires urgent stroke assessment; use HINTS only if trained and competent.
 
-**Trap:** Reassurance from an early CT head. CT has very poor sensitivity for acute posterior fossa infarction. HINTS performed by a trained examiner outperforms early MRI in this specific group.
+**Trap:** Reassurance from an early CT head, which is insensitive for acute posterior-fossa infarction. In the original high-risk acute vestibular syndrome study, expert HINTS was more sensitive than early MRI—not a result that can be generalised to every dizzy patient or untrained examiner.
 
 **Take home:** A normal head impulse in acute continuous vertigo is a red flag, not reassurance.
 
-**Source:** Kattah et al 2009, and current stroke pathway guidance
+**Source:** Kattah et al 2009 and NICE NG127
+
+**Fact check:** [Kattah et al, HINTS study](https://pubmed.ncbi.nlm.nih.gov/19762709/)
 
 ---
 
@@ -477,7 +537,7 @@ Spin the wheel, or pick a number from the table below. Every topic is written to
 
 **Principle:** Whether tissue is salvageable depends on collateral circulation, not on the clock alone. Perfusion imaging identifies patients with a small infarct core and a large threatened penumbra, who benefit long after the standard window.
 
-**Rule:** Thrombolysis within 4.5 hours of known onset. Thrombectomy for proximal anterior circulation occlusion up to 6 hours as standard, and up to 24 hours where imaging shows salvageable tissue. Wake-up strokes are not automatically excluded.
+**Rule:** Offer thrombolysis within 4.5 hours of known onset when eligible; selected wake-up or unknown-onset strokes may also qualify using advanced imaging. Offer thrombectomy for eligible proximal anterior-circulation occlusion up to 6 hours, and consider it from 6 to 24 hours when imaging shows salvageable tissue.
 
 **Trap:** Standing down a stroke call because the patient woke with symptoms, or because it is nine hours since onset. That decision belongs to the thrombectomy centre with the imaging in front of them.
 
@@ -485,25 +545,29 @@ Spin the wheel, or pick a number from the table below. Every topic is written to
 
 **Source:** NICE NG128
 
+**Fact check:** [NICE stroke recommendations](https://www.nice.org.uk/guidance/ng128/chapter/Recommendations)
+
 ---
 
-## 29. Anticoagulated head injury has its own CT rule
+## 29. Anticoagulants and most antiplatelets change the head-injury CT threshold
 
-**Principle:** The pathology is delayed intracranial haemorrhage, which can occur without any of the standard clinical risk factors and without initial symptoms.
+**Principle:** Anticoagulant and antiplatelet treatment can increase the risk of intracranial bleeding after head injury, including when the usual clinical CT indications are absent.
 
-**Rule:** NICE NG232 recommends considering CT head within 8 hours of injury for a patient on anticoagulation who has no other indication for imaging. All the standard one hour indications still apply on top: GCS below 13 at any point, focal deficit, suspected skull fracture, post-traumatic seizure, more than one episode of vomiting.
+**Rule:** For a patient on anticoagulants or antiplatelet treatment other than aspirin monotherapy, NICE says to consider CT within 8 hours if there is no other indication, or within 1 hour if they present more than 8 hours after injury. One-hour indications include initial GCS 12 or less, GCS below 15 at 2 hours, skull-fracture signs, seizure, focal deficit or more than one vomiting episode.
 
-**Trap:** Applying the anticoagulant rule to antiplatelet monotherapy, which is a different and more nuanced situation, or discharging an anticoagulated patient after a normal early scan with no safety netting for delayed bleeding.
+**Trap:** Treating the additional indication as an automatic-scan rule, forgetting it includes antiplatelets except aspirin alone, or discharging without assessing supervision and giving clear delayed-bleeding safety-net advice.
 
-**Take home:** Warfarin or a DOAC plus any head injury means a scan, even if they look completely fine.
+**Take home:** Anticoagulants or antiplatelets other than aspirin alone should prompt active consideration of CT even without another indication.
 
 **Source:** NICE NG232
+
+**Fact check:** [NICE head injury recommendations](https://www.nice.org.uk/guidance/NG232/chapter/recommendations)
 
 ---
 
 ## 30. 4AT takes under two minutes, and confused is not a diagnosis
 
-**Principle:** Delirium is under-recognised because the hypoactive form is far commoner than the agitated form and looks like fatigue or depression. It carries substantially increased mortality and length of stay.
+**Principle:** Delirium is under-recognised because hypoactive delirium is common, easily missed and can look like fatigue or depression. It is associated with increased mortality and length of stay.
 
 **Rule:** The 4AT has four components: alertness, orientation with AMT4, attention tested by reciting the months backwards, and evidence of acute change or fluctuation. A score of 4 or above suggests delirium. Then find the cause: infection, retention, constipation, pain, drugs, withdrawal, metabolic derangement.
 
@@ -512,6 +576,8 @@ Spin the wheel, or pick a number from the table below. Every topic is written to
 **Take home:** Months of the year backwards is a twenty second screening test you can do at the bedside.
 
 **Source:** NICE CG103 and the 4AT
+
+**Fact check:** [Official 4AT clinical guide](https://www.the4at.com/aboutthe4at)
 
 ---
 
@@ -527,7 +593,9 @@ Spin the wheel, or pick a number from the table below. Every topic is written to
 
 **Take home:** Trend the lactate, do not treat the single number.
 
-**Source:** Surviving Sepsis Campaign 2021 and NICE NG51
+**Source:** Surviving Sepsis Campaign 2021
+
+**Fact check:** [Surviving Sepsis Campaign guideline](https://pmc.ncbi.nlm.nih.gov/articles/PMC8486643/)
 
 ---
 
@@ -535,7 +603,7 @@ Spin the wheel, or pick a number from the table below. Every topic is written to
 
 **Principle:** In a neutropenic patient the usual signs of infection are absent because there are no neutrophils to generate them. There may be no localising signs, no pus and minimal inflammatory response, right up until decompensation.
 
-**Rule:** Any patient who has had systemic anticancer therapy in the past six weeks and becomes unwell or has a temperature above 38 degrees gets empirical broad spectrum antibiotics within one hour, before the full blood count returns. Do not perform a digital rectal examination.
+**Rule:** Suspect neutropenic sepsis in a patient receiving, or recently receiving, anticancer treatment who becomes unwell. Treat it as an acute emergency with immediate empiric broad-spectrum antibiotics; do not wait for the neutrophil count. Follow the local acute-oncology risk window, which is often six weeks, and avoid digital rectal examination.
 
 **Trap:** Waiting for the neutrophil count, or being reassured because the patient looks reasonably well and is apyrexial. Hypothermia counts too.
 
@@ -543,19 +611,23 @@ Spin the wheel, or pick a number from the table below. Every topic is written to
 
 **Source:** NICE CG151
 
+**Fact check:** [NICE neutropenic sepsis recommendations](https://www.nice.org.uk/guidance/cg151/chapter/Recommendations)
+
 ---
 
 ## 24. The blood cultures are worth the two minutes
 
-**Principle:** A single dose of antibiotic can sterilise cultures within hours, and the culture result is what allows de-escalation from broad spectrum therapy days later. That decision is impossible without a pathogen.
+**Principle:** Blood cultures can identify the pathogen and support later narrowing of treatment, while antibiotics given first reduce culture yield. Adequate blood volume is a major determinant of sensitivity.
 
-**Rule:** Take cultures before the first dose wherever it does not delay treatment, ideally two sets from separate sites with adequate volume, because yield is volume dependent above almost all other factors. Never delay antibiotics beyond an hour in a red flag patient to obtain them.
+**Rule:** When bloodstream infection is suspected, collect at least two sets—four bottles—with about 8 to 10 mL in each adult bottle before antibiotics if this causes no clinically important delay. Current UK standards allow both sets to be collected during one venepuncture; follow local policy.
 
-**Trap:** Skipping cultures because the patient is going straight onto piperacillin-tazobactam anyway. The consequence is 14 days of broad spectrum therapy that nobody feels able to narrow.
+**Trap:** Skipping cultures because broad-spectrum treatment has started, or delaying time-critical antibiotics while repeatedly attempting difficult cultures. Obtain them promptly, but treatment urgency comes first.
 
-**Take home:** Fill the bottles properly. Volume matters more than the timing of the venepuncture.
+**Take home:** Two adequately filled sets before antibiotics when feasible; never create a dangerous treatment delay.
 
-**Source:** NICE NG51 and UK microbiology standards
+**Source:** UKHSA blood-culture standards and antimicrobial stewardship guidance
+
+**Fact check:** [UK antimicrobial stewardship guidance](https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings)
 
 ---
 
@@ -563,29 +635,33 @@ Spin the wheel, or pick a number from the table below. Every topic is written to
 
 ## 31. The two bag paracetamol regimen
 
-**Principle:** Most anaphylactoid reactions to acetylcysteine relate to the high concentration delivered in the first hour of the traditional three bag regimen. Slowing that initial infusion reduces reactions substantially without reducing efficacy.
+**Principle:** Non-IgE-mediated reactions to acetylcysteine are related in part to the high initial infusion rate in the traditional regimen. In studies, the slower two-bag SNAP regimen reduced adverse reactions without increasing liver injury.
 
-**Rule:** The SNAP two bag regimen gives 100 mg/kg over 2 hours then 200 mg/kg over 10 hours. Fewer interruptions, fewer reactions, simpler prescription. If a reaction does occur it is dose related and not a true allergy, so pause the infusion, treat, and restart at a slower rate.
+**Rule:** The SNAP regimen gives 100 mg/kg over 2 hours then 200 mg/kg over 10 hours. It is off-label and not universal, so use TOXBASE and the adopted local protocol. If a reaction occurs, manage it according to that protocol and obtain toxicology advice rather than labelling acetylcysteine as a permanent allergy.
 
 **Trap:** Stopping acetylcysteine permanently after a flushing reaction and leaving the patient untreated.
 
 **Take home:** An acetylcysteine reaction means slow the infusion, not stop the treatment.
 
-**Source:** MHRA guidance and the SNAP trial. Check which regimen your trust has adopted
+**Source:** SNAP clinical studies. This regimen is off-label; follow TOXBASE and local policy
+
+**Fact check:** [SNAP regimen safety and efficacy study](https://pmc.ncbi.nlm.nih.gov/articles/PMC6610779/)
 
 ---
 
-## 32. Thiamine before glucose, every time
+## 32. Give thiamine with glucose—but never delay emergency glucose
 
-**Principle:** Thiamine is a cofactor for pyruvate dehydrogenase. Giving a glucose load to a thiamine depleted patient accelerates the metabolic demand for it and can precipitate Wernicke's encephalopathy.
+**Principle:** Thiamine is required for carbohydrate metabolism. Prolonged carbohydrate administration to a severely thiamine-deficient patient may worsen or precipitate Wernicke's encephalopathy, but evidence does not support withholding urgent glucose.
 
-**Rule:** In any patient with alcohol dependence, malnutrition or hyperemesis who needs glucose, give parenteral thiamine first or at the same time. The classic triad of confusion, ataxia and ophthalmoplegia is present in only a small minority. Most cases have one feature, or a non-specific confusion.
+**Rule:** Treat hypoglycaemia immediately. In patients at risk through alcohol dependence, malnutrition or prolonged vomiting, give parenteral thiamine before, alongside or promptly after glucose without delaying glucose delivery. Do not wait for the classic triad of confusion, ataxia and eye signs.
 
-**Trap:** Waiting for the full triad before treating. Parenteral thiamine is cheap and low risk, and untreated Wernicke's progresses to irreversible Korsakoff syndrome.
+**Trap:** Delaying glucose in a hypoglycaemic patient while sourcing thiamine, or waiting for the full Wernicke triad before treating thiamine deficiency.
 
-**Take home:** If you are considering it at all, give it. The threshold should be very low.
+**Take home:** Emergency glucose comes first; give thiamine promptly as well when deficiency is plausible.
 
-**Source:** NICE CG100 and CG115
+**Source:** NICE CG100 and evidence review of glucose-before-thiamine
+
+**Fact check:** [Glucose-before-thiamine evidence review](https://www.sciencedirect.com/science/article/pii/S0736467911008547)
 
 ---
 
@@ -593,41 +669,47 @@ Spin the wheel, or pick a number from the table below. Every topic is written to
 
 **Principle:** The anterolateral thigh has large muscle bulk and high blood flow, giving the fastest reliable peak concentration. Adrenaline is the only drug that reverses the underlying pathology rather than one symptom of it.
 
-**Rule:** 500 micrograms of 1:1000 IM into the anterolateral thigh in an adult, repeated at 5 minutes if there is no improvement. Lie the patient flat with legs raised. Do not sit them up, because a sudden change to upright posture in a vasodilated patient can cause cardiac arrest.
+**Rule:** Give 500 micrograms of 1 mg/mL adrenaline IM into the anterolateral thigh in an adult and repeat after 5 minutes if there is no improvement. Lie the patient flat with legs raised; a patient with severe breathing difficulty may sit with legs extended, but do not let them stand or walk.
 
 **Trap:** Reaching for chlorphenamine and hydrocortisone first. Both were removed from the RCUK 2021 acute algorithm because neither does anything for airway compromise or shock.
 
-**Take home:** Two doses without response is refractory anaphylaxis, which needs an adrenaline infusion and critical care, not a third IM dose.
+**Take home:** After two IM doses without response, call for expert help and start an IV adrenaline infusion; continue 5-minute IM doses until the infusion is running.
 
-**Source:** Resuscitation Council UK anaphylaxis guideline 2021
+**Source:** Resuscitation Council UK guideline 2025 and refractory anaphylaxis guidance
+
+**Fact check:** [RCUK special-circumstances guideline](https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/special-circumstances-guidelines)
 
 ---
 
-## 35. The commonest cause of a long QT is on the drug chart
+## 35. A common preventable cause of long QT is on the drug chart
 
 **Principle:** The QT interval reflects ventricular repolarisation, mostly via potassium channels. Many common drugs block those channels and the effect is additive when you stack them. Hypokalaemia, hypomagnesaemia and bradycardia all amplify it.
 
-**Rule:** QTc above 500 ms, or a rise of more than 60 ms from baseline, is the threshold for concern. Look for the usual suspects: macrolides, quinolones, ondansetron, haloperidol, citalopram, amiodarone, antifungals, methadone. Keep potassium above 4.0 and magnesium above 1.0 mmol/L in anyone at risk.
+**Rule:** QTc above 500 ms, or an increase of more than 60 ms from baseline, is high risk. Review QT-prolonging medicines and interactions, correct hypokalaemia and hypomagnesaemia into the normal or high-normal range as locally advised, and obtain senior advice if risk persists.
 
 **Trap:** Prescribing ondansetron and clarithromycin together to a hypokalaemic patient already on citalopram, and never looking at an ECG. This is one of the more preventable causes of in-hospital torsades.
 
 **Take home:** Before adding a QT prolonging drug, look at the potassium and at what is already on the chart.
 
-**Source:** MHRA drug safety updates and standard cardiology guidance
+**Source:** MHRA drug safety updates and peer-reviewed QT guidance
+
+**Fact check:** [Review of drug-induced QT prolongation](https://pmc.ncbi.nlm.nih.gov/articles/PMC4860751/)
 
 ---
 
 ## 36. Digoxin toxicity happens at normal levels
 
-**Principle:** Digoxin competes with potassium for the same binding site on the sodium-potassium ATPase. When potassium is low, more digoxin binds, so toxicity occurs at a serum concentration inside the therapeutic range.
+**Principle:** Serum digoxin concentration does not reliably correlate with toxicity, especially in chronic exposure. Renal impairment, hypokalaemia and hypomagnesaemia increase susceptibility, so toxicity can occur within the quoted therapeutic range.
 
-**Rule:** Toxicity is a clinical diagnosis: nausea, visual disturbance with a yellow-green tinge, confusion, and almost any arrhythmia, classically bidirectional VT or atrial tachycardia with block. Check and correct potassium and magnesium, check renal function, and involve toxicology early. Digoxin specific antibody fragments are the definitive treatment.
+**Rule:** Diagnose from the clinical picture, ECG, renal function, electrolytes and a correctly timed level—at least 6 hours after the last dose. Digoxin-specific antibody fragments are indicated for life-threatening toxicity; discuss significant suspected toxicity with toxicology early.
 
 **Trap:** Excluding toxicity because the level came back in range, and taking the level too soon after a dose, when it is uninterpretable before six hours.
 
 **Take home:** Low potassium makes a normal digoxin level dangerous.
 
-**Source:** TOXBASE and the BNF
+**Source:** TOXBASE and expert consensus guidance
+
+**Fact check:** [Digoxin-toxicity consensus guidance](https://pmc.ncbi.nlm.nih.gov/articles/PMC10599802/)
 
 ---
 
