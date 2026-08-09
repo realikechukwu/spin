@@ -44,9 +44,13 @@ h1{
 }
 
 .stage{
-  display:grid;grid-template-columns:minmax(300px,36%) 1fr;
+  display:grid;grid-template-columns:minmax(300px,440px) minmax(320px,640px);
+  justify-content:center;
   gap:clamp(28px,4.5vw,88px);align-items:start;
 }
+.stage.centered{grid-template-columns:minmax(300px,440px)}
+.stage.centered .card{display:none}
+.stage.centered .wheel-col{position:static}
 .wheel-col{position:sticky;top:clamp(20px,3.5vw,56px)}
 
 /* ---------- ring ---------- */
@@ -522,6 +526,7 @@ const $=id=>document.getElementById(id);
 const wheel=$("wheel"), card=$("card"), spinBtn=$("spinBtn");
 const undoBtn=$("undoBtn"), indexBtn=$("indexBtn"), resetBtn=$("resetBtn"), fsBtn=$("fsBtn");
 const indexPane=$("index"), grid=$("grid"), legend=$("legend");
+const stage=document.querySelector(".stage");
 
 let used=[], rotation=0, spinning=false, memoryOnly=false, current=null;
 
@@ -582,6 +587,7 @@ function paintWheel(){
 function esc(s){ return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
 
 function renderTopic(t){
+  stage.classList.remove("centered");
   card.innerHTML=
     '<article class="topic" style="--accent:'+swatch(t)+'">'+
       '<div class="tag"><span class="dot"></span>No. '+(t.id+1)+' &middot; '+SYS[t.sys].name+' &middot; '+esc(t.theme)+'</div>'+
@@ -596,9 +602,10 @@ function renderTopic(t){
     '</article>';
 }
 function renderDone(){
+  stage.classList.remove("centered");
   card.innerHTML='<div class="topic"><p class="allclear">All '+N+' delivered. Reset to start the cycle again.</p></div>';
 }
-function renderIdle(){ card.innerHTML=""; }
+function renderIdle(){ stage.classList.add("centered"); card.innerHTML=""; }
 
 function renderLegend(){
   legend.innerHTML=SYS.map(function(s,si){
