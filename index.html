@@ -45,6 +45,13 @@
   --ink-3:#A1A1A6;
   --line:#E3E3E6;
 
+  /* Desktop layout. The h1 shares this same box, so it lines up with the
+     wheel column in the filled state and centres in the empty state. */
+  --col-wheel:440px;
+  --col-text:640px;
+  --stage-gap:clamp(28px,4.5vw,88px);
+  --stage-max:calc(var(--col-wheel) + var(--stage-gap) + var(--col-text));
+
   --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif;
   --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
 }
@@ -71,17 +78,19 @@ body{
 
 h1{
   font-size:clamp(30px,3.6vw,54px);font-weight:600;line-height:1.06;
-  letter-spacing:-.032em;margin-bottom:clamp(28px,4vw,56px);
+  letter-spacing:-.032em;margin:0 auto clamp(28px,4vw,56px);
+  max-width:var(--stage-max);
 }
 
 .stage{
-  display:grid;grid-template-columns:minmax(300px,440px) minmax(320px,640px);
+  display:grid;
+  grid-template-columns:minmax(300px,var(--col-wheel)) minmax(320px,var(--col-text));
   justify-content:center;
-  gap:clamp(28px,4.5vw,88px);align-items:start;
+  gap:var(--stage-gap);align-items:start;
 }
-.stage.centered{grid-template-columns:minmax(300px,440px)}
-.stage.centered .card{display:none}
-.stage.centered .wheel-col{position:static}
+.shell.centered .stage{grid-template-columns:minmax(300px,var(--col-wheel))}
+.shell.centered .card{display:none}
+.shell.centered .wheel-col{position:static}
 .wheel-col{position:sticky;top:clamp(20px,3.5vw,56px)}
 
 /* ---------- ring ---------- */
@@ -179,8 +188,14 @@ h1{
 .chip.done{color:var(--ink-3)}
 .chip.done .dot{opacity:.3}
 
+@media (min-width:961px){
+  /* Empty state: nothing in the right column, so centre the title over the wheel. */
+  .shell.centered h1{text-align:center}
+}
 @media (max-width:960px){
-  .stage{grid-template-columns:1fr}
+  /* Stacked. minmax(0,1fr) rather than the desktop min widths so narrow
+     phones cannot overflow. */
+  .stage,.shell.centered .stage{grid-template-columns:minmax(0,1fr)}
   .wheel-col{position:static}
   .wheel-wrap,.legend,.controls{max-width:380px}
   .card{min-height:0}
@@ -557,7 +572,7 @@ const $=id=>document.getElementById(id);
 const wheel=$("wheel"), card=$("card"), spinBtn=$("spinBtn");
 const undoBtn=$("undoBtn"), indexBtn=$("indexBtn"), resetBtn=$("resetBtn"), fsBtn=$("fsBtn");
 const indexPane=$("index"), grid=$("grid"), legend=$("legend");
-const stage=document.querySelector(".stage");
+const shell=document.querySelector(".shell");
 
 let used=[], rotation=0, spinning=false, memoryOnly=false, current=null;
 
@@ -618,7 +633,7 @@ function paintWheel(){
 function esc(s){ return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
 
 function renderTopic(t){
-  stage.classList.remove("centered");
+  shell.classList.remove("centered");
   card.innerHTML=
     '<article class="topic" style="--accent:'+swatch(t)+'">'+
       '<div class="tag"><span class="dot"></span>No. '+(t.id+1)+' &middot; '+SYS[t.sys].name+' &middot; '+esc(t.theme)+'</div>'+
@@ -633,10 +648,10 @@ function renderTopic(t){
     '</article>';
 }
 function renderDone(){
-  stage.classList.remove("centered");
+  shell.classList.remove("centered");
   card.innerHTML='<div class="topic"><p class="allclear">All '+N+' delivered. Reset to start the cycle again.</p></div>';
 }
-function renderIdle(){ stage.classList.add("centered"); card.innerHTML=""; }
+function renderIdle(){ shell.classList.add("centered"); card.innerHTML=""; }
 
 function renderLegend(){
   legend.innerHTML=SYS.map(function(s,si){
