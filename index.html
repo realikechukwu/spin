@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en-GB" data-mode="colour">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Handover Teaching Wheel</title>
+<meta name="description" content="One concept, ninety seconds. Thirty six acute medicine teaching points for the end of handover.">
+<style>
+:root{
+  --bg:#FFFFFF;
+  --surface:#F5F5F7;
+  --ink:#1D1D1F;
+  --ink-2:#6E6E73;
+  --ink-3:#A1A1A6;
+  --line:#E3E3E6;
+
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#000000;
+    --surface:#1C1C1E;
+    --ink:#F5F5F7;
+    --ink-2:#A1A1A6;
+    --ink-3:#6E6E73;
+    --line:#2C2C2E;
+  }
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:var(--sans);font-size:17px;line-height:1.55;letter-spacing:-.01em;
+  -webkit-font-smoothing:antialiased;
+  padding:clamp(20px,3.5vw,56px);
+}
+.shell{max-width:1440px;margin:0 auto}
+
+h1{
+  font-size:clamp(30px,3.6vw,54px);font-weight:600;line-height:1.06;
+  letter-spacing:-.032em;margin-bottom:clamp(28px,4vw,56px);
+}
+
+.stage{
+  display:grid;grid-template-columns:minmax(300px,36%) 1fr;
+  gap:clamp(28px,4.5vw,88px);align-items:start;
+}
+.wheel-col{position:sticky;top:clamp(20px,3.5vw,56px)}
+
+/* ---------- ring ---------- */
+.wheel-wrap{position:relative;width:100%;max-width:440px;margin:0 auto}
+.wheel-wrap svg{display:block;width:100%;height:auto;overflow:visible}
+#wheel{transition:transform 4.8s cubic-bezier(.12,.72,.06,1)}
+.seg path{transition:opacity .45s ease,d .35s ease}
+.seg.used path{opacity:.13}
+
+.hub{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;pointer-events:none;text-align:center;
+}
+.hub .num{
+  font-size:clamp(38px,4.6vw,60px);font-weight:600;letter-spacing:-.035em;
+  line-height:1;font-variant-numeric:tabular-nums;
+}
+.hub .lab{font-size:13px;color:var(--ink-3);margin-top:8px;letter-spacing:0}
+
+.needle{position:absolute;top:-3px;left:50%;transform:translateX(-50%);z-index:4}
+.needle svg{width:13px;height:18px;display:block}
+.needle path{fill:var(--ink)}
+
+/* ---------- legend ---------- */
+.legend{
+  max-width:440px;margin:clamp(22px,2.4vw,30px) auto 0;
+  display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:center;
+  font-size:13px;color:var(--ink-3);letter-spacing:0;
+}
+.legend span{display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+.legend i{width:8px;height:8px;border-radius:50%;background:var(--c);flex-shrink:0}
+.legend span.empty{opacity:.35}
+
+/* ---------- controls ---------- */
+.controls{max-width:440px;margin:clamp(22px,2.4vw,30px) auto 0;text-align:center}
+.spin{
+  width:100%;font-family:inherit;font-size:17px;font-weight:500;letter-spacing:-.01em;
+  background:var(--ink);color:var(--bg);border:none;border-radius:980px;
+  padding:16px 24px;cursor:pointer;transition:opacity .2s ease,transform .1s ease;
+}
+.spin:hover:not(:disabled){opacity:.82}
+.spin:active:not(:disabled){transform:scale(.985)}
+.spin:disabled{opacity:.3;cursor:not-allowed}
+.row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.btn{
+  font-family:inherit;font-size:14px;letter-spacing:-.005em;
+  background:var(--surface);color:var(--ink-2);border:none;border-radius:980px;
+  padding:9px 16px;cursor:pointer;transition:color .2s ease,opacity .2s ease;
+}
+.btn:hover:not(:disabled){color:var(--ink)}
+.btn:disabled{opacity:.35;cursor:not-allowed}
+.spin:focus-visible,.btn:focus-visible,.chip:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+
+/* ---------- topic ---------- */
+.card{min-height:60px}
+.topic{animation:rise .5s cubic-bezier(.2,.8,.3,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+.tag{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--ink-3);letter-spacing:0;margin-bottom:14px}
+.tag .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0}
+
+.topic h2{
+  font-size:clamp(27px,3.1vw,46px);font-weight:600;line-height:1.08;
+  letter-spacing:-.03em;margin-bottom:clamp(24px,2.6vw,38px);max-width:20ch;
+}
+.beats{display:grid;gap:clamp(20px,2vw,28px)}
+.beat dt{
+  font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:6px;
+}
+.beat dd{font-size:clamp(16px,1.2vw,19px);line-height:1.6;max-width:68ch;letter-spacing:-.012em}
+
+.takehome{margin-top:clamp(26px,2.8vw,40px);background:var(--surface);border-radius:16px;padding:clamp(20px,2vw,30px)}
+.takehome .lbl{
+  display:block;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:8px;
+}
+.takehome p{font-size:clamp(19px,1.8vw,28px);font-weight:600;line-height:1.25;letter-spacing:-.025em;max-width:34ch}
+
+.source{margin-top:clamp(20px,2vw,28px);padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-3);letter-spacing:0}
+.allclear{font-size:clamp(20px,2vw,28px);font-weight:600;letter-spacing:-.025em;max-width:22ch}
+
+/* ---------- index ---------- */
+.index{margin-top:clamp(32px,4vw,60px);padding-top:clamp(22px,2.4vw,34px);border-top:1px solid var(--line)}
+.index[hidden]{display:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:2px}
+.chip{
+  display:flex;gap:11px;align-items:flex-start;text-align:left;
+  background:transparent;color:var(--ink);border:none;border-radius:10px;
+  padding:11px 12px;cursor:pointer;font-family:inherit;font-size:14.5px;line-height:1.4;
+  letter-spacing:-.012em;transition:background .18s ease;
+}
+.chip:hover{background:var(--surface)}
+.chip .dot{width:8px;height:8px;border-radius:50%;background:var(--c);flex-shrink:0;margin-top:6px}
+.chip.done{color:var(--ink-3)}
+.chip.done .dot{opacity:.3}
+
+@media (max-width:960px){
+  .stage{grid-template-columns:1fr}
+  .wheel-col{position:static}
+  .wheel-wrap,.legend,.controls{max-width:380px}
+  .card{min-height:0}
+}
+@media (prefers-reduced-motion:reduce){
+  #wheel{transition-duration:.4s}
+  .topic{animation:none}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <h1>One concept, ninety seconds.</h1>
+
+  <main class="stage">
+    <section class="wheel-col" aria-label="Topic wheel">
+      <div class="wheel-wrap">
+        <div class="needle" aria-hidden="true">
+          <svg viewBox="0 0 13 18"><path d="M6.5 18 L0.4 2.6 A6.5 6.5 0 0 1 12.6 2.6 Z"/></svg>
+        </div>
+        <svg viewBox="0 0 420 420" role="img" aria-label="Wheel of 36 teaching topics">
+          <g id="wheel" transform-origin="210 210"></g>
+        </svg>
+        <div class="hub">
+          <span class="num" id="doneCount">0</span>
+          <span class="lab">of <span id="totalCount">36</span> delivered</span>
+        </div>
+      </div>
+
+      <div class="legend" id="legend"></div>
+
+      <div class="controls">
+        <button class="spin" id="spinBtn">Spin the wheel</button>
+        <div class="row">
+          <button class="btn" id="undoBtn" disabled>Put last one back</button>
+          <button class="btn" id="indexBtn">Browse all</button>
+          <button class="btn" id="fsBtn">Full screen</button>
+          <button class="btn" id="resetBtn">Reset</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="card" aria-live="polite"></section>
+  </main>
+
+  <section class="index" id="index" hidden>
+    <div class="grid" id="grid"></div>
+  </section>
+
+</div>
+
+<script>
+const MODE="colour";
+const TOPICS = [
+{w:1,theme:"Cardiac rhythm",title:"Aspirin is not an anticoagulant option in AF",
+principle:"AF stroke is a stasis driven fibrin thrombus forming in the left atrial appendage. It is not a platelet driven arterial plaque event, so an antiplatelet is the wrong drug class for the wrong clot.",
+rule:"Score thromboembolic risk with CHA2DS2-VASc, assess bleeding risk with ORBIT, and offer a DOAC first line. Bleeding risk is used to find and modify reversible risk factors, not to withhold anticoagulation.",
+trap:"Withholding anticoagulation because of falls risk. The number of falls per year needed to outweigh the stroke benefit is implausibly high for almost any real patient.",
+takehome:"NICE explicitly says do not offer aspirin monotherapy for stroke prevention in AF.",
+source:"NICE NG196"},
+
+{w:1,theme:"Cardiac rhythm",title:"Why atropine fails in complete heart block",
+principle:"Atropine works by blocking vagal tone at the AV node. If the block sits below the node, in the His-Purkinje system, there is no vagal tone there to block, so atropine does nothing.",
+rule:"Atropine 500 micrograms IV, repeated every 3 to 5 minutes to a maximum of 3 mg. If the QRS is broad and the block is Mobitz II or third degree, expect failure and get the pacing pads on early. Second line is transcutaneous pacing, isoprenaline or an adrenaline infusion, alongside an urgent cardiology call.",
+trap:"Cycling through repeated atropine doses in an infranodal block while the patient stays at 30 beats per minute. Worth knowing too that atropine is ineffective in the transplanted heart, which is denervated.",
+takehome:"Broad QRS bradycardia means reach for the pacing pads, not the third dose of atropine.",
+source:"Resuscitation Council UK ALS 2021"},
+
+{w:1,theme:"Cardiac rhythm",title:"Adenosine is 6, 12, 18, and the cannula matters more than the dose",
+principle:"Adenosine has a half life under 10 seconds because it is taken up by red cells and endothelium almost immediately. It only works if a bolus reaches the AV node intact.",
+rule:"6 mg, then 12 mg, then 18 mg, each as a rapid bolus into a large proximal vein with an immediate 20 ml saline flush and the arm elevated. Run a rhythm strip throughout, because the strip during the pause is often more diagnostically useful than the termination itself.",
+trap:"Giving it through a small hand cannula or a femoral line. The drug is metabolised before it arrives and you conclude it did not work.",
+takehome:"Antecubital fossa or bigger, rapid flush, and record the strip.",
+source:"Resuscitation Council UK ALS 2021, third dose changed from 12 mg to 18 mg"},
+
+{w:2,theme:"Chest pain and ACS",title:"The delta matters more than the absolute troponin",
+principle:"Troponin tells you there is myocardial injury. Only the pattern over time tells you whether that injury is acute. Chronic elevation from renal impairment, heart failure or LVH sits at a stable plateau. Acute infarction rises and falls.",
+rule:"Use your local high sensitivity rule in and rule out thresholds with a repeat sample at the specified interval. A single mildly raised troponin with an unconvincing story and no dynamic change is not an NSTEMI.",
+trap:"Treating a flat, chronically raised troponin as ACS and loading someone with dual antiplatelets and fondaparinux. And the converse: a normal first troponin very early after symptom onset excludes nothing.",
+takehome:"Two values and a clinical story, never one number in isolation.",
+source:"NICE DG40 and the ESC rapid rule out pathways"},
+
+{w:2,theme:"Chest pain and ACS",title:"The STEMI equivalents that do not meet STEMI criteria",
+principle:"ST elevation criteria are a proxy for occlusion, not the definition of it. Some total occlusions produce no ST elevation at all in the standard leads.",
+rule:"Three to know. Posterior MI shows horizontal ST depression in V1 to V3 with tall R waves, so do posterior leads V7 to V9. De Winter T waves show upsloping ST depression at the J point with tall symmetrical T waves in the precordials, meaning proximal LAD occlusion. Wellens pattern shows deep or biphasic T wave inversion in V2 to V3 in a pain free patient, meaning critical LAD stenosis.",
+trap:"Stress testing a Wellens patient. They need angiography, not a treadmill.",
+takehome:"ST depression in V1 to V3 should trigger posterior leads before anything else.",
+source:"ESC acute coronary syndromes guideline 2023"},
+
+{w:2,theme:"Chest pain and ACS",title:"The dissection that presents as an inferior STEMI",
+principle:"A type A dissection flap can extend into a coronary ostium, most commonly the right, producing genuine inferior infarction. The ECG is real. The diagnosis is still dissection.",
+rule:"Before thrombolysing or loading for an inferior STEMI, take ten seconds on three things. Was the pain tearing and maximal at onset, is there a pulse or blood pressure differential between arms, and is there a new diastolic murmur. A widened mediastinum is supportive but neither sensitive nor specific.",
+trap:"Full anticoagulation and antiplatelet loading in an undiagnosed dissection.",
+takehome:"Inferior STEMI with hypotension needs right sided leads and a moment's thought about the aorta.",
+source:"ESC aortic disease guideline 2024"},
+
+{w:3,theme:"Syncope and dizziness",title:"Dizziness is about timing and triggers, not quality",
+principle:"Asking whether it is spinning or lightheaded is unreliable, because patients describe the same symptom differently on different days. Timing and triggers are reproducible. Quality is not.",
+rule:"Sort into three groups. Continuous vertigo present right now is acute vestibular syndrome. Episodic and triggered by position is likely BPPV, so test with Dix-Hallpike. Episodic and spontaneous is a third category. HINTS applies only to the first group.",
+trap:"Applying HINTS to someone who is currently asymptomatic. It is meaningless without ongoing nystagmus.",
+takehome:"No nystagmus right now means no HINTS.",
+source:"Standard neuro-otology teaching, reflected in current stroke pathways"},
+
+{w:3,theme:"Syncope and dizziness",title:"In HINTS, the normal result is the frightening one",
+principle:"The head impulse test assesses the vestibulo-ocular reflex. Vestibular neuritis damages that reflex, so the eyes lag and make a corrective saccade. A brainstem stroke leaves the peripheral apparatus intact, so the reflex looks normal.",
+rule:"Central features are a normal head impulse, direction changing nystagmus on lateral gaze, or vertical skew on cover-uncover testing. Any one of the three means central until proven otherwise.",
+trap:"Reassurance from an early CT head. CT has very poor sensitivity for acute posterior fossa infarction. HINTS performed by a trained examiner outperforms early MRI in this specific group.",
+takehome:"A normal head impulse in acute continuous vertigo is a red flag, not reassurance.",
+source:"Kattah et al 2009, and current stroke pathway guidance"},
+
+{w:3,theme:"Syncope and dizziness",title:"Syncope: the six red flags that change the pathway",
+principle:"Most syncope is benign reflex syncope. The whole job of the assessment is separating that from arrhythmic or structural cardiac syncope, which carries real short term mortality.",
+rule:"Any of these means the patient does not simply go home: syncope during exertion, syncope while supine or sitting, new or unexplained breathlessness, a heart murmur, a family history of sudden cardiac death under 40, or an abnormal ECG. Everyone gets a 12 lead.",
+trap:"Labelling it collapse query cause and moving on. That phrase carries no diagnostic information and tends to close down thinking.",
+takehome:"Syncope on exertion is cardiac until proven otherwise.",
+source:"NICE CG109"},
+
+{w:4,theme:"Electrolytes, part one",title:"Calcium does not lower potassium",
+principle:"There are three separate jobs in hyperkalaemia and they get confused. Stabilise the myocardium, shift potassium into cells, then remove it from the body. Calcium does only the first.",
+rule:"ECG changes get 10 ml of 10% calcium gluconate, which acts within minutes and wears off in 30 to 60 minutes. Shift with insulin and glucose plus salbutamol nebulisers. Removal means dialysis or a potassium binder, and stopping whatever caused it.",
+trap:"Giving calcium and assuming the problem is treated. The serum potassium is entirely unchanged.",
+takehome:"Calcium buys you time, it does not fix anything.",
+source:"UK Kidney Association hyperkalaemia guideline"},
+
+{w:4,theme:"Electrolytes, part one",title:"The insulin-glucose hypoglycaemia that happens six hours later",
+principle:"The insulin used to shift potassium has a longer duration of glycaemic effect than the glucose given with it, particularly in renal impairment where insulin clearance is reduced.",
+rule:"After insulin and glucose, monitor capillary glucose hourly for at least six hours. The strongest predictor of later hypoglycaemia is a pre-treatment glucose below 7 mmol/L, and those patients need extended glucose cover.",
+trap:"Giving the insulin and walking away because the potassium is now normal. This is a recognised cause of avoidable overnight harm and a recurring incident report theme.",
+takehome:"Pre-treatment glucose under 7 means the patient needs watching for six hours.",
+source:"UK Kidney Association hyperkalaemia guideline"},
+
+{w:4,theme:"Electrolytes, part one",title:"Potassium will not correct while the magnesium is low",
+principle:"Magnesium normally inhibits the ROMK channel in the distal nephron. When magnesium is depleted that inhibition is lifted, the kidney wastes potassium continuously, and replacement flows straight into the urine.",
+rule:"In any refractory hypokalaemia, check and replace magnesium. It is common in diuretic use, alcohol dependence, diarrhoea, refeeding, and after prolonged PPI therapy.",
+trap:"Prescribing a fourth bag of potassium and rechecking the level, with no magnesium ever measured.",
+takehome:"Hypokalaemia that will not budge means check the magnesium.",
+source:"Renal physiology, reflected in most trust electrolyte protocols"},
+
+{w:5,theme:"Electrolytes and diabetes",title:"Hyponatraemia: treat the brain, not the number",
+principle:"Symptoms come from cerebral oedema caused by acute water shift into brain cells. Severity is set by the neurology and the rate of fall, not by how low the number is. A chronic sodium of 118 may be walking and talking. An acute fall to 125 may be fitting.",
+rule:"Seizures or reduced consciousness get hypertonic 3% saline, 100 to 150 ml over 20 minutes, repeated to achieve a 5 mmol/L rise and symptom improvement. Everyone else gets time: assess volume status and send paired serum and urine osmolality plus urine sodium before giving any fluid.",
+trap:"Giving a litre of 0.9% saline to an undifferentiated hyponatraemia. In SIADH this can make the sodium fall further, because the kidney excretes the salt and retains the water.",
+takehome:"Send the urine before you hang the fluid.",
+source:"European Society of Endocrinology hyponatraemia guideline"},
+
+{w:5,theme:"Electrolytes and diabetes",title:"The correction limit that prevents osmotic demyelination",
+principle:"Brain cells adapt to chronic hyponatraemia by extruding osmolytes. Correct the serum sodium faster than they can reclaim those osmolytes and the cells shrink, causing osmotic demyelination. It is irreversible and it presents days later.",
+rule:"Maximum 10 mmol/L in the first 24 hours, and 8 mmol/L in high risk patients: malnutrition, alcohol dependence, hypokalaemia, advanced liver disease, or a starting sodium below 105.",
+trap:"Auto-correction. When you treat the cause, for example stopping a thiazide or filling a hypovolaemic patient, the sodium can climb rapidly on its own. Recheck at 4 to 6 hours and be ready to give desmopressin and dextrose to slow it down.",
+takehome:"The danger is not just what you infuse, it is what the patient does once you remove the cause.",
+source:"European Society of Endocrinology hyponatraemia guideline"},
+
+{w:5,theme:"Electrolytes and diabetes",title:"In DKA, the long acting insulin stays running",
+principle:"The fixed rate insulin infusion treats the ketosis. The background basal insulin does a separate job, preventing rebound hyperglycaemia and ketosis at the moment the infusion stops. Stopping it creates a gap.",
+rule:"Continue the usual long acting analogue at the usual dose alongside the FRIII. Add 10% glucose once the capillary glucose falls below 14 mmol/L and keep the insulin running. Resolution is ketones below 0.6 mmol/L with pH above 7.3 and bicarbonate above 15.",
+trap:"Stopping the infusion when the glucose normalises. The patient is still ketotic and will relapse within hours.",
+takehome:"You stop the drip on the ketones, never on the glucose.",
+source:"JBDS-IP DKA guideline"},
+
+{w:6,theme:"Respiratory failure",title:"88 to 92% is a target range, not a ceiling to defend",
+principle:"The risk in chronic hypercapnia is mainly worsening ventilation-perfusion mismatch with high oxygen, plus loss of hypoxic drive. But hypoxia kills faster than hypercapnia. The target exists to prevent over-oxygenation, not to justify under-treating a hypoxic patient.",
+rule:"94 to 98% for most acutely unwell patients, 88 to 92% for those at risk of hypercapnic respiratory failure pending blood gases. If a patient at risk is saturating at 80%, give high flow oxygen immediately and check a gas. Do not titrate cautiously upward.",
+trap:"Leaving a patient hypoxic because they are a retainer. And the opposite, leaving 15 litres running on a non-rebreathe for hours after the patient has stabilised.",
+takehome:"Correct hypoxia first, then titrate down and check a gas.",
+source:"BTS oxygen guideline"},
+
+{w:6,theme:"Respiratory failure",title:"NIV is decided at one hour, not on arrival",
+principle:"Much of the acidosis on arrival in COPD is driven by uncontrolled oxygen in the ambulance and by reversible bronchospasm. Treat those and the pH often corrects without ventilation.",
+rule:"Give controlled oxygen to 88 to 92%, bronchodilators, steroids and antibiotics if indicated, then repeat the gas after one hour. Persistent respiratory acidosis with pH below 7.35 and PaCO2 above 6.5 kPa at that point is the trigger for NIV.",
+trap:"Starting NIV on the arrival gas before optimising, or the reverse, waiting three hours to see. Every patient started on NIV needs a documented escalation plan and ceiling of care decision at the point of starting, not at 3am when it fails.",
+takehome:"Optimise, repeat the gas at one hour, and write the ceiling of care down.",
+source:"BTS and ICS acute NIV guideline"},
+
+{w:6,theme:"Respiratory failure",title:"Five days of prednisolone, and no taper",
+principle:"Short glucocorticoid courses do not meaningfully suppress the hypothalamic-pituitary-adrenal axis, so there is nothing to taper. Longer courses add adverse effects without additional benefit.",
+rule:"Prednisolone 30 mg once daily for 5 days in an acute COPD exacerbation, then stop. Antibiotics only if sputum has become purulent or there are clinical or radiological signs of pneumonia.",
+trap:"The reducing regimen over two weeks, and reflex antibiotics for every exacerbation regardless of sputum character.",
+takehome:"Thirty milligrams, five days, stop.",
+source:"NICE NG115"},
+
+{w:7,theme:"PE, pneumothorax, pneumonia",title:"Age adjusted D-dimer, and when not to send one at all",
+principle:"D-dimer rises with age, malignancy, infection, pregnancy and surgery. A fixed threshold becomes progressively less useful the older the patient is, generating scans that were never going to be positive.",
+rule:"In a patient over 50 who is not PE likely, use age multiplied by 10 as the cut off in ng/mL. A D-dimer is only interpretable after a validated pre-test probability score. If the patient is PE likely, go straight to imaging, because a negative D-dimer does not rule out PE in that group.",
+trap:"Sending a D-dimer on everyone with chest pain before any clinical assessment. A positive result in a low probability patient then obliges a scan you did not need.",
+takehome:"Score first, then decide whether the D-dimer means anything.",
+source:"NICE NG158"},
+
+{w:7,theme:"PE, pneumothorax, pneumonia",title:"Not every PE needs admission",
+principle:"Risk in PE is driven by right ventricular strain and haemodynamic compromise, not by clot burden on the scan. A large looking clot in a well patient with a normal right heart is lower risk than a small clot in a patient with a dilated RV.",
+rule:"Use sPESI or the Hestia criteria to identify low risk patients suitable for outpatient management on a DOAC, with clear safety netting and early follow up. Raised troponin or RV dilatation moves a patient into intermediate risk and they stay in.",
+trap:"Describing a PE as massive based on the CT report. Massive is a haemodynamic definition meaning sustained hypotension, not a radiological one.",
+takehome:"Massive means the blood pressure, not the picture.",
+source:"NICE NG158 and ESC acute PE guideline"},
+
+{w:7,theme:"PE, pneumothorax, pneumonia",title:"Pneumothorax management moved away from the ruler",
+principle:"Size on a chest film is a poor guide to how a patient will do. Symptoms and high risk characteristics predict outcome far better than a measurement in centimetres.",
+rule:"BTS 2023 restructured the pathway around whether the patient is symptomatic and whether high risk characteristics are present, with a much greater role for conservative management and ambulatory devices in stable primary spontaneous pneumothorax. Tension pneumothorax remains a clinical diagnosis needing immediate decompression, never a radiological one.",
+trap:"Reflexively inserting a chest drain in a minimally symptomatic young patient because the rim measured over 2 cm.",
+takehome:"Ask how the patient is doing before you measure the film.",
+source:"BTS pleural disease guideline 2023"},
+
+{w:8,theme:"Sepsis and infection",title:"Lactate is a stress marker, not just a perfusion marker",
+principle:"Lactate rises in shock, but it also rises from beta-2 adrenergic stimulation driving glycolysis, from reduced hepatic clearance, and from any high catecholamine state. The mechanism is not always hypoperfusion.",
+rule:"Consider the alternatives before assuming sepsis: salbutamol nebulisers, seizures, severe agitation, liver failure, metformin accumulation, thiamine deficiency. A falling lactate after resuscitation is genuinely useful. A single value in isolation is much less so.",
+trap:"Anchoring on a raised lactate and giving repeated fluid boluses to a patient whose lactate is high for a non-perfusion reason. And the opposite trap, a normal lactate does not exclude sepsis.",
+takehome:"Trend the lactate, do not treat the single number.",
+source:"Surviving Sepsis Campaign 2021 and NICE NG51"},
+
+{w:8,theme:"Sepsis and infection",title:"Neutropenic sepsis: do not wait for the count",
+principle:"In a neutropenic patient the usual signs of infection are absent because there are no neutrophils to generate them. There may be no localising signs, no pus and minimal inflammatory response, right up until decompensation.",
+rule:"Any patient who has had systemic anticancer therapy in the past six weeks and becomes unwell or has a temperature above 38 degrees gets empirical broad spectrum antibiotics within one hour, before the full blood count returns. Do not perform a digital rectal examination.",
+trap:"Waiting for the neutrophil count, or being reassured because the patient looks reasonably well and is apyrexial. Hypothermia counts too.",
+takehome:"Antibiotics within the hour, count later.",
+source:"NICE CG151"},
+
+{w:8,theme:"Sepsis and infection",title:"The blood cultures are worth the two minutes",
+principle:"A single dose of antibiotic can sterilise cultures within hours, and the culture result is what allows de-escalation from broad spectrum therapy days later. That decision is impossible without a pathogen.",
+rule:"Take cultures before the first dose wherever it does not delay treatment, ideally two sets from separate sites with adequate volume, because yield is volume dependent above almost all other factors. Never delay antibiotics beyond an hour in a red flag patient to obtain them.",
+trap:"Skipping cultures because the patient is going straight onto piperacillin-tazobactam anyway. The consequence is 14 days of broad spectrum therapy that nobody feels able to narrow.",
+takehome:"Fill the bottles properly. Volume matters more than the timing of the venepuncture.",
+source:"NICE NG51 and UK microbiology standards"},
+
+{w:9,theme:"Kidneys and fluids",title:"Stopping the ACE inhibitor is not the whole plan",
+principle:"AKI has three mechanisms and they need different responses. Pre-renal means restore perfusion. Post-renal means relieve obstruction. Intrinsic means find the cause, which is where the drug list and the urine dip actually matter.",
+rule:"Every AKI gets a volume assessment, a medication review, a urine dip, and consideration of imaging. If there is no obvious cause, arrange renal tract ultrasound within 24 hours. Blood and protein with no infection should prompt thought about glomerulonephritis or vasculitis, which is a same day discussion.",
+trap:"Stopping the nephrotoxics, prescribing a litre of fluid, and considering the problem addressed. That misses obstruction and misses intrinsic disease.",
+takehome:"Every AKI needs a urine dip and a reason.",
+source:"NICE NG148 and KDIGO"},
+
+{w:9,theme:"Kidneys and fluids",title:"Post-obstructive diuresis is a real thing",
+principle:"After relief of chronic obstruction the kidney cannot immediately reconcentrate urine. Retained solute plus impaired tubular function produces a large physiological diuresis, which in a minority becomes pathological and causes hypovolaemia and electrolyte collapse.",
+rule:"After catheterising a patient who drains a large residual volume, monitor hourly urine output and check electrolytes. Replace fluid if output is very high or the patient becomes hypovolaemic, but do not match output millilitre for millilitre by default, because that perpetuates the diuresis.",
+trap:"Catheterising at 2am, documenting the residual volume, and going back to bed with no monitoring plan written.",
+takehome:"A big residual volume needs an observation plan, not just a number in the notes.",
+source:"BAUS guidance and NICE NG148"},
+
+{w:9,theme:"Kidneys and fluids",title:"The five Rs, and why maintenance is not resuscitation",
+principle:"Fluid is a drug with a dose, a route and side effects. The commonest prescribing error is using resuscitation rate fluid to correct a maintenance problem, or the reverse.",
+rule:"Every fluid prescription answers one of five questions: resuscitation, routine maintenance, replacement of ongoing losses, redistribution, or reassessment. Resuscitation is 500 ml of balanced crystalloid over less than 15 minutes then reassess. Routine maintenance is roughly 25 to 30 ml/kg/day of water with about 1 mmol/kg/day each of sodium, potassium and chloride.",
+trap:"Continuous 0.9% saline as maintenance. It delivers several times the daily sodium requirement and produces hyperchloraemic acidosis and oedema.",
+takehome:"Write which of the five Rs you are prescribing for, on the chart.",
+source:"NICE CG174"},
+
+{w:10,theme:"Neurology",title:"The thrombectomy window is far longer than the thrombolysis window",
+principle:"Whether tissue is salvageable depends on collateral circulation, not on the clock alone. Perfusion imaging identifies patients with a small infarct core and a large threatened penumbra, who benefit long after the standard window.",
+rule:"Thrombolysis within 4.5 hours of known onset. Thrombectomy for proximal anterior circulation occlusion up to 6 hours as standard, and up to 24 hours where imaging shows salvageable tissue. Wake-up strokes are not automatically excluded.",
+trap:"Standing down a stroke call because the patient woke with symptoms, or because it is nine hours since onset. That decision belongs to the thrombectomy centre with the imaging in front of them.",
+takehome:"Late presentation is a reason to call the stroke team, not a reason not to.",
+source:"NICE NG128"},
+
+{w:10,theme:"Neurology",title:"Anticoagulated head injury has its own CT rule",
+principle:"The pathology is delayed intracranial haemorrhage, which can occur without any of the standard clinical risk factors and without initial symptoms.",
+rule:"NICE NG232 recommends considering CT head within 8 hours of injury for a patient on anticoagulation who has no other indication for imaging. All the standard one hour indications still apply on top: GCS below 13 at any point, focal deficit, suspected skull fracture, post-traumatic seizure, more than one episode of vomiting.",
+trap:"Applying the anticoagulant rule to antiplatelet monotherapy, which is a different and more nuanced situation, or discharging an anticoagulated patient after a normal early scan with no safety netting for delayed bleeding.",
+takehome:"Warfarin or a DOAC plus any head injury means a scan, even if they look completely fine.",
+source:"NICE NG232"},
+
+{w:10,theme:"Neurology",title:"4AT takes under two minutes, and confused is not a diagnosis",
+principle:"Delirium is under-recognised because the hypoactive form is far commoner than the agitated form and looks like fatigue or depression. It carries substantially increased mortality and length of stay.",
+rule:"The 4AT has four components: alertness, orientation with AMT4, attention tested by reciting the months backwards, and evidence of acute change or fluctuation. A score of 4 or above suggests delirium. Then find the cause: infection, retention, constipation, pain, drugs, withdrawal, metabolic derangement.",
+trap:"Writing confused, for review in the notes. It records the observation without triggering the search for a cause, which is the entire clinical value.",
+takehome:"Months of the year backwards is a twenty second screening test you can do at the bedside.",
+source:"NICE CG103 and the 4AT"},
+
+{w:11,theme:"Toxicology and GI bleeding",title:"The two bag paracetamol regimen",
+principle:"Most anaphylactoid reactions to acetylcysteine relate to the high concentration delivered in the first hour of the traditional three bag regimen. Slowing that initial infusion reduces reactions substantially without reducing efficacy.",
+rule:"The SNAP two bag regimen gives 100 mg/kg over 2 hours then 200 mg/kg over 10 hours. Fewer interruptions, fewer reactions, simpler prescription. If a reaction does occur it is dose related and not a true allergy, so pause the infusion, treat, and restart at a slower rate.",
+trap:"Stopping acetylcysteine permanently after a flushing reaction and leaving the patient untreated.",
+takehome:"An acetylcysteine reaction means slow the infusion, not stop the treatment.",
+source:"MHRA guidance and the SNAP trial. Check which regimen your trust has adopted"},
+
+{w:11,theme:"Toxicology and GI bleeding",title:"Thiamine before glucose, every time",
+principle:"Thiamine is a cofactor for pyruvate dehydrogenase. Giving a glucose load to a thiamine depleted patient accelerates the metabolic demand for it and can precipitate Wernicke's encephalopathy.",
+rule:"In any patient with alcohol dependence, malnutrition or hyperemesis who needs glucose, give parenteral thiamine first or at the same time. The classic triad of confusion, ataxia and ophthalmoplegia is present in only a small minority. Most cases have one feature, or a non-specific confusion.",
+trap:"Waiting for the full triad before treating. Parenteral thiamine is cheap and low risk, and untreated Wernicke's progresses to irreversible Korsakoff syndrome.",
+takehome:"If you are considering it at all, give it. The threshold should be very low.",
+source:"NICE CG100 and CG115"},
+
+{w:11,theme:"Toxicology and GI bleeding",title:"A Blatchford score of 0 or 1 can go home",
+principle:"The Glasgow-Blatchford score is built entirely from pre-endoscopy variables and predicts need for intervention. It is the only widely used bleeding score designed for exactly the decision you are making at 3am.",
+rule:"Score everyone with an upper GI bleed on admission. A score of 0 or 1 identifies a group at very low risk of needing intervention who can be considered for outpatient endoscopy. Endoscopy within 24 hours for everyone admitted, and immediately after resuscitation if unstable. Rockall is calculated after endoscopy and answers a different question.",
+trap:"Transfusing to a normal haemoglobin. Restrictive transfusion at a threshold of 70 g/L improves survival in acute upper GI bleeding, and over-transfusion raises portal pressure in variceal bleeding.",
+takehome:"Blatchford before endoscopy, Rockall after.",
+source:"NICE CG141"},
+
+{w:12,theme:"Peri-arrest and prescribing",title:"Anaphylaxis: the drug is adrenaline and the site is the thigh",
+principle:"The anterolateral thigh has large muscle bulk and high blood flow, giving the fastest reliable peak concentration. Adrenaline is the only drug that reverses the underlying pathology rather than one symptom of it.",
+rule:"500 micrograms of 1:1000 IM into the anterolateral thigh in an adult, repeated at 5 minutes if there is no improvement. Lie the patient flat with legs raised. Do not sit them up, because a sudden change to upright posture in a vasodilated patient can cause cardiac arrest.",
+trap:"Reaching for chlorphenamine and hydrocortisone first. Both were removed from the RCUK 2021 acute algorithm because neither does anything for airway compromise or shock.",
+takehome:"Two doses without response is refractory anaphylaxis, which needs an adrenaline infusion and critical care, not a third IM dose.",
+source:"Resuscitation Council UK anaphylaxis guideline 2021"},
+
+{w:12,theme:"Peri-arrest and prescribing",title:"The commonest cause of a long QT is on the drug chart",
+principle:"The QT interval reflects ventricular repolarisation, mostly via potassium channels. Many common drugs block those channels and the effect is additive when you stack them. Hypokalaemia, hypomagnesaemia and bradycardia all amplify it.",
+rule:"QTc above 500 ms, or a rise of more than 60 ms from baseline, is the threshold for concern. Look for the usual suspects: macrolides, quinolones, ondansetron, haloperidol, citalopram, amiodarone, antifungals, methadone. Keep potassium above 4.0 and magnesium above 1.0 mmol/L in anyone at risk.",
+trap:"Prescribing ondansetron and clarithromycin together to a hypokalaemic patient already on citalopram, and never looking at an ECG. This is one of the more preventable causes of in-hospital torsades.",
+takehome:"Before adding a QT prolonging drug, look at the potassium and at what is already on the chart.",
+source:"MHRA drug safety updates and standard cardiology guidance"},
+
+{w:12,theme:"Peri-arrest and prescribing",title:"Digoxin toxicity happens at normal levels",
+principle:"Digoxin competes with potassium for the same binding site on the sodium-potassium ATPase. When potassium is low, more digoxin binds, so toxicity occurs at a serum concentration inside the therapeutic range.",
+rule:"Toxicity is a clinical diagnosis: nausea, visual disturbance with a yellow-green tinge, confusion, and almost any arrhythmia, classically bidirectional VT or atrial tachycardia with block. Check and correct potassium and magnesium, check renal function, and involve toxicology early. Digoxin specific antibody fragments are the definitive treatment.",
+trap:"Excluding toxicity because the level came back in range, and taking the level too soon after a dose, when it is uninterpretable before six hours.",
+takehome:"Low potassium makes a normal digoxin level dangerous.",
+source:"TOXBASE and the BNF"}
+,
+{w:13,theme:"Gastroenterology and hepatology",title:"Every admission with ascites gets a diagnostic tap",
+principle:"In cirrhosis the ascitic fluid is a culture medium and the gut wall is leaky, so infection arises with no perforation and no surgical source. It frequently presents without abdominal pain or fever, sometimes as nothing more than a rising creatinine or new confusion.",
+rule:"Diagnostic ascitic tap on every patient admitted with ascites, ideally within 6 hours and before antibiotics. An ascitic neutrophil count above 250 cells per cubic millimetre makes the diagnosis of spontaneous bacterial peritonitis regardless of what the culture grows. Treat with antibiotics per local policy plus intravenous albumin, which reduces renal failure and mortality.",
+trap:"Not tapping because the patient looks well, or because the INR is prolonged. A raised INR in cirrhosis is not a contraindication to a diagnostic tap and does not need correcting first.",
+takehome:"Two hundred and fifty neutrophils is the number, and the culture does not have to be positive.",
+source:"EASL decompensated cirrhosis guideline and BSG ascites guidance"},
+
+{w:13,theme:"Gastroenterology and hepatology",title:"Encephalopathy is a search for the precipitant",
+principle:"Encephalopathy in cirrhosis is almost always triggered by something else. The liver disease is the substrate. The precipitant is what you actually treat.",
+rule:"Look for it every time: infection including SBP, gastrointestinal bleeding, constipation, dehydration or over-diuresis, electrolyte disturbance, and sedative drugs. Lactulose titrated to two or three soft stools a day, with rifaximin added for recurrent episodes.",
+trap:"Sending a serum ammonia and using it to make or exclude the diagnosis. It correlates poorly with grade and does not change management. And assuming confusion in a cirrhotic patient is encephalopathy without excluding hypoglycaemia, sepsis, Wernicke's or a subdural.",
+takehome:"Hepatic encephalopathy is a clinical diagnosis. The job is finding the trigger, not measuring ammonia.",
+source:"EASL and AASLD hepatic encephalopathy guidance"},
+
+{w:13,theme:"Gastroenterology and hepatology",title:"In a cirrhotic bleed the antibiotic is the mortality drug",
+principle:"In variceal bleeding the intervention with the clearest mortality benefit is not the terlipressin and not the endoscopy. Bacterial translocation after a bleed drives rebleeding, infection and death, and antibiotics interrupt that.",
+rule:"Prophylactic antibiotics for every cirrhotic patient with an upper gastrointestinal bleed, whether or not varices are confirmed and whether or not there are signs of infection. Add terlipressin as soon as variceal bleeding is suspected, and arrange endoscopy within 24 hours once resuscitated.",
+trap:"Waiting for endoscopy to confirm varices before starting either drug. And over-transfusing, which raises portal pressure and provokes rebleeding, so hold to the restrictive threshold of 70 g/L.",
+takehome:"Antibiotics in a cirrhotic bleed are a mortality intervention, not optional prophylaxis.",
+source:"NICE CG141, BSG and Baveno guidance"},
+
+{w:13,theme:"Gastroenterology and hepatology",title:"Amylase makes the diagnosis and tells you nothing about severity",
+principle:"Early mortality in acute pancreatitis is driven by SIRS and organ failure, not by the pancreas itself. The enzyme level reflects neither how much gland is involved nor how sick the patient will become.",
+rule:"Goal directed fluid resuscitation with a balanced crystalloid, titrated to response rather than given at maximal rates. Find the cause in every patient: ultrasound for gallstones, an alcohol history, and check calcium and triglycerides. Reassess severity at 24 and 48 hours rather than trusting the admission score.",
+trap:"Prophylactic antibiotics with no proven infection, which do not improve outcome. And keeping patients nil by mouth by reflex, when early oral feeding as tolerated is now preferred in mild disease.",
+takehome:"A normal or mildly raised amylase does not reassure, and a very high one does not frighten.",
+source:"BSG and IAP/APA acute pancreatitis guidance"},
+
+{w:13,theme:"Gastroenterology and hepatology",title:"Acute severe colitis: day three is the decision point",
+principle:"Acute severe ulcerative colitis carries real mortality and its decision points are time bound. Truelove and Witts criteria identify it on day one, and failure to respond by day three is what triggers rescue therapy or surgery.",
+rule:"Six or more bloody stools a day plus any one of: temperature above 37.8 degrees, pulse above 90, haemoglobin below 105 g/L, or ESR above 30. Admit, intravenous hydrocortisone, stool chart, exclude C. difficile and CMV, and get a plain abdominal film. Assess response on day 3 using stool frequency and CRP, with surgeons involved from admission.",
+trap:"Withholding VTE prophylaxis because the patient is bleeding per rectum. Acute severe colitis is strongly prothrombotic and prophylaxis is indicated. Also avoid antimotility agents and opiates, which risk toxic megacolon.",
+takehome:"Rectal bleeding is not a reason to withhold VTE prophylaxis in colitis.",
+source:"BSG inflammatory bowel disease guidelines and ECCO"}
+];
+const SYS=[
+  {k:"C",name:"Cardiac",              c:"#C8402F", o:1.00},
+  {k:"P",name:"Respiratory",          c:"#2E7CC4", o:0.86},
+  {k:"R",name:"Renal and metabolic",  c:"#1E8F6E", o:0.72},
+  {k:"G",name:"Gastro and liver",     c:"#A8497E", o:0.58},
+  {k:"N",name:"Neurology",            c:"#7A4FBF", o:0.45},
+  {k:"I",name:"Infection",            c:"#D18A16", o:0.32},
+  {k:"T",name:"Drugs and prescribing",c:"#55606E", o:0.21}
+];
+const SYSMAP="CCCCCCNNCRRRRRRPPPPPPIIIRRRNNNTTGTTTGGGGG";
+
+TOPICS.forEach((t,i)=>{
+  t.id=i;
+  t.sys=SYS.findIndex(s=>s.k===SYSMAP[i]);
+});
+
+/* wheel order: grouped by system, original order within each */
+const ORDER=[];
+SYS.forEach((s,si)=>TOPICS.forEach(t=>{ if(t.sys===si) ORDER.push(t.id); }));
+const SLOT={};                       // topic id -> wheel position
+ORDER.forEach((id,pos)=>SLOT[id]=pos);
+
+const KEY="handover-wheel-v1";
+const N=TOPICS.length;
+const SEG=360/N;
+const GAP=1.15;                      // degrees of white between segments
+const CX=210,CY=210;
+const R_OUT=196,R_IN=174;            // resting band
+const H_OUT=203,H_IN=167;            // band when it is the one you landed on
+
+const $=id=>document.getElementById(id);
+const wheel=$("wheel"), card=$("card"), spinBtn=$("spinBtn");
+const undoBtn=$("undoBtn"), indexBtn=$("indexBtn"), resetBtn=$("resetBtn"), fsBtn=$("fsBtn");
+const indexPane=$("index"), grid=$("grid"), legend=$("legend");
+
+let used=[], rotation=0, spinning=false, memoryOnly=false, current=null;
+
+/* ---------- storage ---------- */
+function load(){
+  try{
+    const raw=localStorage.getItem(KEY);
+    const arr=raw?JSON.parse(raw):[];
+    used=Array.isArray(arr)?arr.filter(n=>Number.isInteger(n)&&n>=0&&n<N):[];
+  }catch(e){ memoryOnly=true; used=[]; }
+}
+function save(){
+  if(memoryOnly) return;
+  try{ localStorage.setItem(KEY,JSON.stringify(used)); }catch(e){ memoryOnly=true; }
+}
+
+/* ---------- geometry ---------- */
+function pt(r,deg){
+  const a=(deg-90)*Math.PI/180;
+  return [CX+r*Math.cos(a), CY+r*Math.sin(a)];
+}
+function band(pos,ro,ri){
+  const a0=pos*SEG-SEG/2+GAP/2, a1=pos*SEG+SEG/2-GAP/2;
+  const [x1,y1]=pt(ro,a0), [x2,y2]=pt(ro,a1);
+  const [x3,y3]=pt(ri,a1), [x4,y4]=pt(ri,a0);
+  return "M"+x1+" "+y1+" A"+ro+" "+ro+" 0 0 1 "+x2+" "+y2+
+         " L"+x3+" "+y3+" A"+ri+" "+ri+" 0 0 0 "+x4+" "+y4+" Z";
+}
+function paint(t){
+  const s=SYS[t.sys];
+  return MODE==="mono"
+    ? {fill:"var(--ink)", op:s.o}
+    : {fill:s.c,          op:1};
+}
+function swatch(t){
+  const s=SYS[t.sys];
+  return MODE==="mono" ? "color-mix(in srgb, var(--ink) "+Math.round(s.o*100)+"%, transparent)" : s.c;
+}
+
+function buildWheel(){
+  wheel.innerHTML=ORDER.map(function(id,pos){
+    const p=paint(TOPICS[id]);
+    return '<g class="seg" id="seg'+id+'"><path d="'+band(pos,R_OUT,R_IN)+
+           '" fill="'+p.fill+'" fill-opacity="'+p.op+'"/></g>';
+  }).join("");
+}
+function paintWheel(){
+  TOPICS.forEach(function(t){
+    const g=$("seg"+t.id);
+    g.classList.toggle("used",used.includes(t.id));
+    const hit=(current===t.id);
+    g.querySelector("path").setAttribute("d",
+      band(SLOT[t.id], hit?H_OUT:R_OUT, hit?H_IN:R_IN));
+  });
+}
+
+/* ---------- rendering ---------- */
+function esc(s){ return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+function renderTopic(t){
+  card.innerHTML=
+    '<article class="topic" style="--accent:'+swatch(t)+'">'+
+      '<div class="tag"><span class="dot"></span>No. '+(t.id+1)+' &middot; '+SYS[t.sys].name+' &middot; '+esc(t.theme)+'</div>'+
+      '<h2>'+esc(t.title)+'</h2>'+
+      '<dl class="beats">'+
+        '<div class="beat"><dt>Principle</dt><dd>'+esc(t.principle)+'</dd></div>'+
+        '<div class="beat"><dt>Rule</dt><dd>'+esc(t.rule)+'</dd></div>'+
+        '<div class="beat"><dt>Trap</dt><dd>'+esc(t.trap)+'</dd></div>'+
+      '</dl>'+
+      '<div class="takehome"><span class="lbl">Take home</span><p>'+esc(t.takehome)+'</p></div>'+
+      '<p class="source">'+esc(t.source)+'</p>'+
+    '</article>';
+}
+function renderDone(){
+  card.innerHTML='<div class="topic"><p class="allclear">All '+N+' delivered. Reset to start the cycle again.</p></div>';
+}
+function renderIdle(){ card.innerHTML=""; }
+
+function renderLegend(){
+  legend.innerHTML=SYS.map(function(s,si){
+    const left=TOPICS.filter(t=>t.sys===si&&!used.includes(t.id)).length;
+    const sw=MODE==="mono"?"color-mix(in srgb, var(--ink) "+Math.round(s.o*100)+"%, transparent)":s.c;
+    return '<span class="'+(left?"":"empty")+'" style="--c:'+sw+'"><i></i>'+s.name+' '+left+'</span>';
+  }).join("");
+}
+function renderIndex(){
+  grid.innerHTML=ORDER.map(function(id){
+    const t=TOPICS[id];
+    return '<button class="chip '+(used.includes(id)?"done":"")+'" style="--c:'+swatch(t)+'" data-id="'+id+'">'+
+      '<span class="dot"></span><span>'+esc(t.title)+'</span></button>';
+  }).join("");
+}
+
+function updateChrome(){
+  $("doneCount").textContent=used.length;
+  $("totalCount").textContent=N;
+  undoBtn.disabled=used.length===0;
+  spinBtn.disabled=spinning||used.length>=N;
+  spinBtn.textContent=used.length>=N?"All topics used":(spinning?"Spinning":"Spin the wheel");
+  paintWheel(); renderLegend();
+  if(!indexPane.hidden) renderIndex();
+}
+
+/* ---------- actions ---------- */
+function deliver(id,fromWheel){
+  if(!used.includes(id)){ used.push(id); save(); }
+  current=id;
+  renderTopic(TOPICS[id]);
+  updateChrome();
+  if(!fromWheel){
+    const off=((rotation%360)+360)%360;
+    rotation += (360-off) - SLOT[id]*SEG;
+    wheel.style.transform="rotate("+rotation+"deg)";
+  }
+}
+function spin(){
+  if(spinning) return;
+  const pool=TOPICS.filter(t=>!used.includes(t.id)).map(t=>t.id);
+  if(!pool.length){ renderDone(); return; }
+
+  current=null; spinning=true; updateChrome();
+
+  const pick=pool[Math.floor(Math.random()*pool.length)];
+  const jitter=(Math.random()-0.5)*(SEG*0.5);
+  const turns=5+Math.floor(Math.random()*3);
+  const off=((rotation%360)+360)%360;
+  rotation += turns*360 + (360-off) - SLOT[pick]*SEG + jitter;
+  wheel.style.transform="rotate("+rotation+"deg)";
+
+  const reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  setTimeout(function(){ spinning=false; deliver(pick,true); }, reduced?420:4850);
+}
+function undo(){
+  if(!used.length) return;
+  const last=used.pop(); save();
+  current=last; renderTopic(TOPICS[last]); updateChrome();
+}
+function reset(){
+  if(used.length && !confirm("Clear all "+used.length+" delivered topics and start again?")) return;
+  used=[]; current=null; save(); renderIdle(); updateChrome();
+}
+
+/* ---------- wiring ---------- */
+spinBtn.addEventListener("click",spin);
+undoBtn.addEventListener("click",undo);
+resetBtn.addEventListener("click",reset);
+
+indexBtn.addEventListener("click",function(){
+  indexPane.hidden=!indexPane.hidden;
+  indexBtn.textContent=indexPane.hidden?"Browse all":"Hide list";
+  if(!indexPane.hidden){ renderIndex(); indexPane.scrollIntoView({behavior:"smooth",block:"start"}); }
+});
+grid.addEventListener("click",function(e){
+  const b=e.target.closest(".chip");
+  if(!b||spinning) return;
+  deliver(Number(b.dataset.id),false);
+  window.scrollTo({top:0,behavior:"smooth"});
+});
+fsBtn.addEventListener("click",function(){
+  if(document.fullscreenElement) document.exitFullscreen();
+  else if(document.documentElement.requestFullscreen) document.documentElement.requestFullscreen();
+});
+document.addEventListener("fullscreenchange",function(){
+  fsBtn.textContent=document.fullscreenElement?"Exit full screen":"Full screen";
+});
+document.addEventListener("keydown",function(e){
+  if(e.target.matches("button")) return;
+  if(e.code==="Space"||e.code==="Enter"){ e.preventDefault(); spin(); }
+});
+
+/* ---------- init ---------- */
+load();
+buildWheel();
+if(used.length>=N) renderDone(); else renderIdle();
+updateChrome();
+</script>
+</body>
+</html>
