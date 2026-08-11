@@ -9,6 +9,7 @@
  * point means adding a row — no code change.
  */
 import { readFileSync, writeFileSync, mkdirSync, copyFileSync, rmSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -146,6 +147,26 @@ function writeDataScript(outDir, data) {
   writeFileSync(join(outDir, "data.js"), body, "utf8");
 }
 
+/* Pages serves these with max-age=600, so without a version in the URL a
+   returning visitor can get new HTML alongside a ten-minute-old app.js or
+   data.js. Stamping the content hash makes each deploy land in one piece. */
+function writeIndex(outDir) {
+  const stamp = (file) => {
+    const hash = createHash("sha1").update(readFileSync(join(outDir, file))).digest("hex").slice(0, 8);
+    return `${file}?v=${hash}`;
+  };
+  let html = readFileSync(join(ROOT, "src", "index.html"), "utf8");
+  [
+    ['href="styles.css"', `href="${stamp("styles.css")}"`],
+    ['src="data.js"', `src="${stamp("data.js")}"`],
+    ['src="app.js"', `src="${stamp("app.js")}"`],
+  ].forEach(([from, to]) => {
+    if (!html.includes(from)) throw new Error(`src/index.html no longer contains ${from}`);
+    html = html.replace(from, to);
+  });
+  writeFileSync(join(outDir, "index.html"), html, "utf8");
+}
+
 function writeRota(outDir, { systems, topics }) {
   const header = readFileSync(join(ROOT, "src", "rota-header.md"), "utf8").trimEnd();
   const footer = readFileSync(join(ROOT, "src", "rota-footer.md"), "utf8").trimEnd();
@@ -203,11 +224,12 @@ if (!isRoot) {
 
 const data = loadData();
 
-["index.html", "styles.css", "app.js"].forEach((f) => {
+["styles.css", "app.js"].forEach((f) => {
   copyFileSync(join(ROOT, "src", f), join(outDir, f));
 });
 writeDataScript(outDir, data);
 writeRota(outDir, data);
+writeIndex(outDir);
 
 if (!isRoot) {
   ASSETS.forEach((f) => copyFileSync(join(ROOT, f), join(outDir, f)));
