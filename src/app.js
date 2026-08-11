@@ -136,9 +136,22 @@ function topicHtml(t, titleId) {
   '</article>';
 }
 
+/* The column beside the wheel only ever holds the subject. The teaching
+   point itself lives in the sheet, so closing the sheet leaves you back at
+   the wheel with a way in rather than a wall of text. */
+function previewHtml(t) {
+  var s = SYS_BY_KEY.get(t.system) || { name: "" };
+  return '<article class="topic preview" style="--accent:' + attr(colour(t)) + '">' +
+    '<div class="tag"><span class="dot"></span>No. ' + t.id + ' &middot; ' + esc(s.name) + ' &middot; ' + esc(t.theme) + '</div>' +
+    '<h2>' + esc(t.title) + '</h2>' +
+    '<p class="preview-note">Ninety seconds: principle, rule, trap, take home.</p>' +
+    '<button class="spin preview-go" type="button" data-open="' + t.id + '">Read the teaching point</button>' +
+  '</article>';
+}
+
 function renderCard(t) {
   shell.classList.remove("centered");
-  card.innerHTML = topicHtml(t);
+  card.innerHTML = previewHtml(t);
 }
 function renderDone() {
   shell.classList.remove("centered");
@@ -299,6 +312,10 @@ resultCard.addEventListener("click", function (e) {
   resultToSheet();
 });
 $("resultClose").addEventListener("click", function () { hideLayer(resultLayer); });
+card.addEventListener("click", function (e) {
+  var b = e.target.closest("[data-open]");
+  if (b && !spinning) openSheet(Number(b.dataset.open));
+});
 $("sheetClose").addEventListener("click", function () { hideLayer(sheetLayer); });
 
 [resultLayer, sheetLayer].forEach(function (layer) {

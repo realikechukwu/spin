@@ -136,6 +136,11 @@ h1{
 }
 .takehome p{font-size:clamp(19px,1.8vw,28px);font-weight:600;line-height:1.25;letter-spacing:-.025em;max-width:34ch}
 
+/* subject only: the teaching point stays in the sheet */
+.preview h2{margin-bottom:14px}
+.preview-note{font-size:15px;color:var(--ink-3);letter-spacing:0;margin-bottom:clamp(24px,2.6vw,32px)}
+.preview-go{width:auto;padding-left:30px;padding-right:30px;font-size:16px}
+
 .source{margin-top:clamp(20px,2vw,28px);padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-3);letter-spacing:0}
 .factcheck{margin-top:3px;font-size:11px;line-height:1.45;color:var(--ink-3);letter-spacing:0}
 .factcheck a{color:inherit;text-decoration:underline;text-decoration-thickness:.06em;text-underline-offset:2px}
