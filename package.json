@@ -1,0 +1,13 @@
+{
+  "name": "handover-teaching-wheel",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Spin the wheel for a ninety second acute medicine teaching point at the end of handover.",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:dist": "node scripts/build.mjs --out dist",
+    "serve": "node scripts/build.mjs --out dist && node scripts/serve.mjs"
+  },
+  "license": "UNLICENSED"
+}
